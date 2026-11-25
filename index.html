@@ -1,0 +1,1414 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>Oussoul at-Tafsir — Récapitulatif</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Quicksand:wght@400;500;600;700&family=Caveat:wght@500;600;700&family=Amiri:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --creme:#FBF4E9;
+  --creme2:#F3E8D6;
+  --papier:#FFFDF8;
+  --ink:#42363D;
+  --ink2:#665761;
+  --or:#E0A82E;        --or-d:#B07E12;
+  --rose:#EC9DAE;      --rose-d:#D16A82;
+  --mauve:#C58FCB;     --mauve-d:#9C5AA6;
+  --sauge:#9CC487;     --sauge-d:#6F9E55;
+  --ciel:#8AC2DE;      --ciel-d:#4E97BC;
+  --coral:#F0936F;     --coral-d:#D5663D;
+  --shadow:0 8px 26px rgba(66,54,61,.12);
+  --shadow-s:0 4px 12px rgba(66,54,61,.10);
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:'Quicksand',sans-serif;
+  color:var(--ink);
+  background-color:var(--creme);
+  background-image:radial-gradient(rgba(190,150,100,.20) 1.1px, transparent 1.5px);
+  background-size:17px 17px;
+  line-height:1.66;
+  font-size:17px;
+  overflow-x:hidden;
+}
+.ar{font-family:'Amiri',serif;direction:rtl;unicode-bidi:isolate;line-height:1.95}
+h1,h2,h3{font-family:'Cormorant Garamond',serif;font-weight:600;margin:0}
+
+/* ===== HIGHLIGHTER : tous les termes en gras deviennent surlignés ===== */
+b,strong{
+  color:var(--ink);font-weight:700;
+  background:linear-gradient(104deg,
+     color-mix(in srgb,var(--accent,var(--or)) 40%,transparent) 0%,
+     color-mix(in srgb,var(--accent,var(--or)) 40%,transparent) 100%);
+  padding:.05em .28em;border-radius:.35em;
+  box-decoration-break:clone;-webkit-box-decoration-break:clone;
+}
+.hl-or b,.hl-or strong{--accent:var(--or)}
+.hl{padding:.06em .3em;border-radius:.35em;font-weight:700;color:var(--ink);box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.hl.or{background:color-mix(in srgb,var(--or) 45%,transparent)}
+.hl.rose{background:color-mix(in srgb,var(--rose) 50%,transparent)}
+.hl.mauve{background:color-mix(in srgb,var(--mauve) 48%,transparent)}
+.hl.sauge{background:color-mix(in srgb,var(--sauge) 50%,transparent)}
+.hl.ciel{background:color-mix(in srgb,var(--ciel) 52%,transparent)}
+.hl.coral{background:color-mix(in srgb,var(--coral) 48%,transparent)}
+
+/* ===== TOP BAR ===== */
+.topbar{
+  position:sticky;top:0;z-index:60;
+  display:flex;align-items:center;gap:13px;
+  padding:12px 16px;
+  background:rgba(251,244,233,.93);
+  backdrop-filter:blur(10px);
+  border-bottom:2px solid rgba(224,168,46,.32);
+}
+.burger{
+  width:46px;height:46px;flex:0 0 auto;cursor:pointer;
+  background:var(--papier);border-radius:14px;box-shadow:var(--shadow-s);
+  display:flex;flex-direction:column;justify-content:center;align-items:center;gap:4px;
+  border:2px solid rgba(224,168,46,.4);
+}
+.burger span{display:block;width:20px;height:2.5px;background:var(--or-d);border-radius:2px}
+.topbar h1{font-size:24px;letter-spacing:.3px;line-height:1.1;color:var(--or-d)}
+.topbar .sub{font-family:'Caveat',cursive;font-size:18px;color:var(--mauve-d);margin-top:-3px}
+
+/* ===== DRAWER ===== */
+.scrim{position:fixed;inset:0;background:rgba(58,46,52,.45);opacity:0;visibility:hidden;transition:.28s;z-index:70}
+.scrim.open{opacity:1;visibility:visible}
+.drawer{
+  position:fixed;top:0;left:0;height:100%;width:85%;max-width:350px;z-index:80;
+  background:var(--papier);
+  box-shadow:8px 0 34px rgba(58,46,52,.26);
+  transform:translateX(-103%);transition:transform .3s cubic-bezier(.4,0,.2,1);
+  display:flex;flex-direction:column;
+  border-right:4px solid var(--or);
+}
+.drawer.open{transform:translateX(0)}
+.drawer-head{padding:24px 20px 15px;border-bottom:2px dashed rgba(224,168,46,.45);background:linear-gradient(180deg,color-mix(in srgb,var(--or) 12%,var(--papier)),var(--papier))}
+.drawer-head h2{font-size:26px;color:var(--or-d)}
+.drawer-head p{margin:2px 0 0;font-family:'Caveat',cursive;font-size:19px;color:var(--mauve-d)}
+.nav{overflow-y:auto;padding:10px 12px 44px;flex:1}
+.nav-grp{font-family:'Quicksand';font-weight:700;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--or-d);margin:18px 8px 6px;opacity:.9}
+.nav a{
+  display:flex;align-items:center;gap:11px;
+  padding:10px 11px;margin:3px 0;border-radius:12px;
+  text-decoration:none;color:var(--ink);font-weight:600;font-size:15px;
+  transition:.18s;cursor:pointer;
+}
+.nav a:hover,.nav a:focus{background:var(--creme2);outline:none;transform:translateX(2px)}
+.nav a .num{
+  flex:0 0 auto;width:28px;height:28px;border-radius:9px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:13px;font-weight:700;color:#fff;font-family:'Quicksand';box-shadow:var(--shadow-s);
+}
+
+/* ===== LAYOUT ===== */
+.wrap{max-width:690px;margin:0 auto;padding:8px 15px 90px}
+.intro{text-align:center;padding:30px 18px 6px}
+.intro .eyebrow{font-family:'Caveat',cursive;font-size:23px;color:var(--coral-d)}
+.intro h2{font-size:38px;line-height:1.04;color:var(--ink);margin:5px 0 9px}
+.intro h2 .ar{font-size:34px;color:var(--or-d);display:block;margin-top:3px}
+.intro p{max-width:450px;margin:9px auto 0;color:var(--ink2);font-size:16px}
+.intro .meta{margin-top:15px;font-family:'Caveat',cursive;font-size:18px;color:var(--mauve-d)}
+
+/* ===== COURS CARD ===== */
+.cours{
+  border-radius:22px;
+  padding:20px 18px 22px;
+  margin:34px 0;
+  box-shadow:var(--shadow);
+  position:relative;
+  border:2px solid color-mix(in srgb,var(--accent,var(--or)) 45%,transparent);
+  background:
+    linear-gradient(180deg,
+      color-mix(in srgb,var(--accent,var(--or)) 13%,var(--papier)) 0%,
+      var(--papier) 90px);
+  scroll-margin-top:74px;
+}
+.cours::before{
+  content:"";position:absolute;top:-12px;left:50%;transform:translateX(-50%) rotate(-2.2deg);
+  width:128px;height:26px;border-radius:3px;opacity:.95;
+  background:repeating-linear-gradient(45deg,var(--tape,#E3B0B0) 0 8px,rgba(255,255,255,.5) 8px 16px);
+  box-shadow:0 3px 7px rgba(66,54,61,.16);
+}
+.c-num{
+  font-family:'Caveat',cursive;font-size:21px;color:var(--accent-d,var(--or-d));
+  text-align:center;display:block;margin-top:10px;font-weight:700;letter-spacing:.5px;
+}
+.cours h2{text-align:center;font-size:30px;line-height:1.06;color:var(--ink);margin:1px 0 4px}
+.c-ar{text-align:center;font-family:'Amiri',serif;font-size:25px;color:var(--accent-d,var(--or-d));direction:rtl;margin-bottom:15px;font-weight:700}
+.divider{height:3px;width:62px;margin:10px auto 18px;border-radius:3px;background:var(--accent,var(--or))}
+
+h3.h{
+  font-size:23px;color:#fff;
+  margin:22px 0 11px;display:inline-flex;align-items:center;gap:9px;
+  background:var(--accent-d,var(--mauve-d));
+  padding:5px 15px 6px;border-radius:0 14px 14px 14px;box-shadow:var(--shadow-s);
+}
+h3.h .ar{font-size:20px;font-weight:700}
+p{margin:9px 0}
+.lead{color:var(--ink2);font-size:16.5px}
+.ar-inline{font-family:'Amiri',serif;direction:rtl;font-weight:700;font-size:1.12em}
+
+/* note / quote */
+.note{
+  background:color-mix(in srgb,var(--accent,var(--or)) 14%,var(--papier));
+  border-radius:14px;padding:13px 15px;margin:13px 0;
+  border-left:5px solid var(--accent,var(--or));font-size:15.5px;
+}
+.quote{
+  background:color-mix(in srgb,var(--accent,var(--or)) 9%,var(--papier));
+  border-radius:14px;padding:14px 16px;margin:14px 0;position:relative;
+  border:2px dashed var(--accent,var(--or));font-style:italic;color:var(--ink2);font-size:15.5px;
+}
+.quote .who{display:block;font-style:normal;font-family:'Caveat',cursive;font-size:19px;color:var(--accent-d,var(--or-d));margin-bottom:3px;font-weight:700}
+.verset{
+  text-align:center;font-family:'Amiri',serif;direction:rtl;font-size:24px;
+  color:var(--ink);background:color-mix(in srgb,var(--accent,var(--or)) 12%,var(--papier));
+  border-radius:16px;padding:15px 14px;margin:14px 0;
+  border-top:4px solid var(--accent,var(--or));border-bottom:4px solid var(--accent,var(--or));line-height:2.1;
+}
+.verset .trad{display:block;font-family:'Quicksand';direction:ltr;font-size:13.5px;font-style:italic;color:var(--ink2);margin-top:8px;font-weight:600}
+
+/* ===== TREE / SCHEMA VISUEL ===== */
+.tree{margin:18px 0}
+.tree-root{
+  text-align:center;font-family:'Cormorant Garamond',serif;font-weight:700;font-size:21px;
+  color:#fff;background:linear-gradient(135deg,var(--accent,var(--or)),var(--accent-d,var(--or-d)));
+  border-radius:14px;padding:11px 16px;
+  box-shadow:var(--shadow);position:relative;width:fit-content;max-width:90%;margin:0 auto;
+}
+.tree-root .ar{font-size:18px}
+.stem{width:3px;height:20px;background:var(--accent,var(--or));margin:0 auto;border-radius:3px}
+.stem::after{content:"";display:block;width:11px;height:11px;border-radius:50%;background:var(--accent,var(--or));margin:0 auto;transform:translateY(13px)}
+.branches{display:flex;flex-direction:column;gap:11px;position:relative;padding-left:20px;margin-top:6px}
+.branches::before{
+  content:"";position:absolute;left:7px;top:-2px;bottom:24px;width:3px;
+  background:var(--accent,var(--or));border-radius:3px;opacity:.85;
+}
+.node{
+  background:var(--papier);border:2px solid var(--accent,var(--or));border-radius:14px;
+  padding:11px 14px;position:relative;box-shadow:var(--shadow-s);
+}
+.node::after{
+  content:"";position:absolute;left:-15px;top:24px;width:14px;height:3px;
+  background:var(--accent,var(--or));border-radius:3px;
+}
+.node .nt{font-family:'Quicksand';font-weight:700;font-size:16px;color:var(--accent-d,var(--or-d));display:flex;align-items:baseline;gap:7px;flex-wrap:wrap}
+.node .nt .ar{font-size:17px;color:var(--ink)}
+.node .nd{font-size:15px;color:var(--ink2);margin-top:4px}
+.node .pin{
+  position:absolute;left:-1px;top:-1px;
+  background:linear-gradient(135deg,var(--accent,var(--or)),var(--accent-d,var(--or-d)));color:#fff;
+  font-size:13px;font-weight:700;min-width:26px;height:26px;padding:0 5px;border-radius:13px 3px 13px 3px;
+  display:flex;align-items:center;justify-content:center;font-family:'Quicksand';
+}
+.node.pinned{padding-left:22px}
+
+/* pill row */
+.pills{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
+.pill{
+  background:color-mix(in srgb,var(--accent,var(--or)) 22%,var(--papier));
+  border:2px solid var(--accent,var(--or));color:var(--accent-d,var(--or-d));
+  border-radius:22px;padding:6px 14px;font-size:14px;font-weight:700;
+}
+.pill .ar{font-size:15px}
+
+/* mini grid cards */
+.mini{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:13px 0}
+.mini .m{
+  background:var(--papier);border-radius:14px;padding:12px 13px;box-shadow:var(--shadow-s);
+  border-top:4px solid var(--accent,var(--or));
+  border-left:1px solid color-mix(in srgb,var(--accent,var(--or)) 30%,transparent);
+}
+.mini .m h4{margin:0 0 4px;font-family:'Quicksand';font-weight:700;font-size:14.5px;color:var(--accent-d,var(--or-d))}
+.mini .m p{margin:0;font-size:14px;color:var(--ink2)}
+@media(max-width:380px){.mini{grid-template-columns:1fr}}
+
+/* split */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin:14px 0}
+.split .s{border-radius:15px;padding:13px;box-shadow:var(--shadow-s)}
+.split .s h4{margin:0 0 5px;font-family:'Cormorant Garamond';font-size:18px;font-weight:700}
+.split .s p{margin:0;font-size:14px}
+.split .s .ar{font-size:15px;font-weight:700}
+@media(max-width:400px){.split{grid-template-columns:1fr}}
+
+/* listes */
+ul.clean{list-style:none;padding:0;margin:12px 0}
+ul.clean li{position:relative;padding:8px 0 8px 28px;font-size:16px;border-bottom:1px dashed color-mix(in srgb,var(--accent,var(--or)) 35%,transparent)}
+ul.clean li:last-child{border-bottom:none}
+ul.clean li::before{content:"";position:absolute;left:5px;top:15px;width:10px;height:10px;border-radius:50%;background:var(--accent,var(--or))}
+ol.num{list-style:none;counter-reset:n;padding:0;margin:12px 0}
+ol.num li{position:relative;counter-increment:n;padding:9px 0 9px 38px;font-size:16px;border-bottom:1px dashed color-mix(in srgb,var(--accent,var(--or)) 35%,transparent)}
+ol.num li:last-child{border-bottom:none}
+ol.num li::before{
+  content:counter(n);position:absolute;left:0;top:8px;width:27px;height:27px;border-radius:9px;
+  background:linear-gradient(135deg,var(--accent,var(--or)),var(--accent-d,var(--or-d)));color:#fff;font-weight:700;font-size:13px;
+  display:flex;align-items:center;justify-content:center;font-family:'Quicksand';box-shadow:var(--shadow-s);
+}
+
+/* back to top */
+.toTop{
+  position:fixed;right:15px;bottom:16px;z-index:55;
+  width:50px;height:50px;border-radius:15px;border:none;cursor:pointer;
+  background:linear-gradient(135deg,var(--or),var(--coral));color:#fff;box-shadow:var(--shadow);font-size:21px;
+  opacity:0;visibility:hidden;transition:.25s;
+  display:flex;align-items:center;justify-content:center;
+}
+.toTop.show{opacity:1;visibility:visible}
+.foot{text-align:center;font-family:'Caveat',cursive;font-size:19px;color:var(--mauve-d);padding:12px 0 4px}
+.foot .small{font-family:'Quicksand';font-size:12px;color:var(--ink2);opacity:.75}
+
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+
+/* ===== RECAP HYPER COLORÉ ===== */
+.recap{
+  border-radius:24px;margin:38px 0;padding:0 0 22px;overflow:hidden;
+  box-shadow:var(--shadow);border:2px solid rgba(224,168,46,.4);
+  background:var(--papier);scroll-margin-top:74px;
+}
+.recap-banner{
+  text-align:center;padding:24px 16px 20px;color:#fff;position:relative;
+  background:linear-gradient(110deg,var(--rose-d),var(--coral-d) 22%,var(--or) 42%,var(--sauge-d) 62%,var(--ciel-d) 80%,var(--mauve-d));
+}
+.recap-banner h2{font-size:34px;line-height:1;text-shadow:0 2px 8px rgba(0,0,0,.18)}
+.recap-banner .ar{font-size:25px;display:block;margin-top:4px;font-weight:700;text-shadow:0 2px 8px rgba(0,0,0,.18)}
+.recap-banner p{margin:8px auto 0;font-size:14.5px;max-width:430px;opacity:.96;font-weight:600}
+.recap-body{padding:18px 15px 0}
+
+.recap-h{
+  font-family:'Cormorant Garamond',serif;font-weight:700;font-size:21px;color:var(--ink);
+  margin:22px 0 12px;text-align:center;display:flex;align-items:center;justify-content:center;gap:10px;
+}
+.recap-h::before,.recap-h::after{content:"";height:3px;width:26px;border-radius:3px;
+  background:linear-gradient(90deg,var(--rose),var(--or),var(--ciel))}
+
+.chips{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.chip{
+  border-radius:15px;padding:11px 12px 12px;color:#fff;cursor:pointer;position:relative;
+  box-shadow:var(--shadow-s);border:none;text-align:left;transition:transform .15s;
+  display:block;text-decoration:none;
+  background:linear-gradient(140deg,var(--cc),var(--cc2));
+}
+.chip:hover,.chip:focus{transform:translateY(-2px);outline:none}
+.chip .n{
+  position:absolute;top:8px;right:9px;background:rgba(255,255,255,.32);
+  width:24px;height:24px;border-radius:8px;display:flex;align-items:center;justify-content:center;
+  font-weight:700;font-size:12px;font-family:'Quicksand';
+}
+.chip .t{font-family:'Quicksand';font-weight:700;font-size:14px;line-height:1.2;padding-right:26px;display:block}
+.chip .e{font-size:12px;margin-top:5px;opacity:.95;line-height:1.35;display:block}
+.chip .e .ar{font-size:13px;font-weight:700}
+@media(max-width:360px){.chips{grid-template-columns:1fr}}
+
+/* échelle des 6 sources */
+.ladder{display:flex;flex-direction:column;gap:7px;margin:10px 0}
+.rung{
+  display:flex;align-items:center;gap:11px;border-radius:13px;padding:9px 13px;color:#fff;
+  font-weight:700;font-size:15px;box-shadow:var(--shadow-s);
+  background:linear-gradient(100deg,var(--cc),var(--cc2));
+}
+.rung .rn{background:rgba(255,255,255,.32);min-width:26px;height:26px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;font-size:13px;flex:0 0 auto}
+.rung .ar{font-weight:700;margin-left:auto;font-size:16px}
+
+/* rangées colorées (types de versets, sens de naskh) */
+.crow{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+.cbox{
+  flex:1 1 calc(50% - 8px);min-width:130px;border-radius:13px;padding:10px 12px;color:#fff;
+  box-shadow:var(--shadow-s);background:linear-gradient(135deg,var(--cc),var(--cc2));
+}
+.cbox b{background:rgba(255,255,255,.28);color:#fff}
+.cbox .ttl{font-weight:700;font-size:14px;display:block;margin-bottom:2px}
+.cbox .ds{font-size:12.5px;opacity:.96;line-height:1.35}
+.cbox .ds .ar{font-weight:700}
+
+/* duo forme/fond */
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+.duo .d{border-radius:15px;padding:13px;color:#fff;box-shadow:var(--shadow-s);
+  background:linear-gradient(150deg,var(--cc),var(--cc2))}
+.duo .d h4{margin:0 0 4px;font-family:'Cormorant Garamond';font-size:18px}
+.duo .d .ar{font-weight:700;font-size:15px}
+.duo .d p{margin:5px 0 0;font-size:13px;opacity:.97}
+@media(max-width:400px){.duo{grid-template-columns:1fr}}
+
+
+.recap-grp{
+  margin:30px -15px 6px;padding:11px 18px;color:#fff;font-family:'Cormorant Garamond',serif;
+  font-weight:700;font-size:24px;letter-spacing:.3px;text-align:center;border-radius:4px;
+  background:linear-gradient(100deg,var(--g1),var(--g2));box-shadow:var(--shadow-s);
+}
+.recap-grp .ar{font-size:19px;font-weight:700;display:block;margin-top:1px}
+.cbox.wide{flex:1 1 100%}
+
+</style>
+</head>
+<body>
+<!-- TOP BAR -->
+<header class="topbar">
+  <button class="burger" id="burger" aria-label="Ouvrir le menu">
+    <span></span><span></span><span></span>
+  </button>
+  <div>
+    <h1>Oussoul at-Tafsir</h1>
+    <div class="sub">les bases de l'exégèse · semestre 1</div>
+  </div>
+</header>
+
+<!-- DRAWER -->
+<div class="scrim" id="scrim"></div>
+<nav class="drawer" id="drawer" aria-label="Sommaire">
+  <div class="drawer-head">
+    <h2>Sommaire</h2>
+    <p>أصول التفسير · 15 leçons</p>
+  </div>
+  <div class="nav" id="navlist">
+    <div class="nav-grp">Synthèse</div>
+    <a data-go="recap"><span class="num" style="background:linear-gradient(135deg,var(--rose-d),var(--ciel-d))">★</span>Récapitulatif coloré</a>
+
+    <div class="nav-grp">Fondements</div>
+    <a data-go="c1"><span class="num" style="background:var(--or)">1</span>Introduction & définitions</a>
+    <a data-go="c2"><span class="num" style="background:var(--rose-d)">2</span>Les types de versets</a>
+    <a data-go="c3"><span class="num" style="background:var(--coral-d)">3</span>Tafsir bil-ra'y · le moufassir</a>
+    <a data-go="c4"><span class="num" style="background:var(--mauve-d)">4</span>Histoire du tafsir & ouvrages</a>
+
+    <div class="nav-grp">Sciences du Coran</div>
+    <a data-go="c5"><span class="num" style="background:var(--ciel-d)">5</span>Asbab an-nouzoul</a>
+    <a data-go="c6"><span class="num" style="background:var(--sauge-d)">6</span>Règles d'asbab an-nouzoul</a>
+    <a data-go="c7"><span class="num" style="background:var(--or-d)">7</span>Nasikh wa Mansoukh</a>
+    <a data-go="c8"><span class="num" style="background:var(--rose-d)">8</span>Questions sur l'abrogation</a>
+    <a data-go="c9"><span class="num" style="background:var(--coral-d)">9</span>Mouhkam & Moutachabih</a>
+    <a data-go="c10"><span class="num" style="background:var(--mauve-d)">10</span>La signification du Ta'wil</a>
+
+    <div class="nav-grp">I'jaz & style coranique</div>
+    <a data-go="c11"><span class="num" style="background:var(--ciel-d)">11</span>Le miracle du Coran</a>
+    <a data-go="c12"><span class="num" style="background:var(--sauge-d)">12</span>Les aspects du miracle</a>
+    <a data-go="c13"><span class="num" style="background:var(--or-d)">13</span>Les paraboles · al-Amthal</a>
+    <a data-go="c14"><span class="num" style="background:var(--rose-d)">14</span>Les serments · al-Qasam</a>
+
+    <div class="nav-grp">Méthodologie</div>
+    <a data-go="c15"><span class="num" style="background:var(--coral-d)">15</span>Les 6 sources du tafsir</a>
+    <a data-go="c16"><span class="num" style="background:var(--mauve-d)">16</span>La divergence dans le tafsir</a>
+  </div>
+</nav>
+
+<!-- INTRO -->
+<section class="intro">
+  <div class="eyebrow">talibat al-3ilm · révisions</div>
+  <h2>Les fondements de l'exégèse
+    <span class="ar">أُصُول التَّفْسِير</span>
+  </h2>
+  <p>Les bases scientifiques vers lesquelles revient celui qui explique le Coran, pour distinguer les <span class="hl coral">avis forts</span> des <span class="hl rose">avis faibles</span>. Quinze leçons en arbres et schémas.</p>
+  <div class="meta">touche le menu pour naviguer entre les leçons</div>
+</section>
+
+<div class="wrap">
+<!-- ===================== COURS 1 ===================== -->
+<section class="cours" id="c1" style="--accent:var(--or);--accent-d:var(--or-d);--tape:var(--rose)">
+  <span class="c-num">Leçon 1</span>
+  <h2>Introduction & définitions</h2>
+  <div class="c-ar">مُقَدِّمَة وَتَعْرِيفَات</div>
+  <div class="divider"></div>
+
+  <h3 class="h">Quelques mérites du Coran</h3>
+  <p class="lead">Allah a juré par le Coran et informe qu'il fut annoncé dans les livres précédents. Il le décrit comme un livre <b>béni</b>, la <b>meilleure des paroles</b>, une <b>miséricorde</b>, un <b>guide</b>. Il est protégé des démons, exempt de contradiction, et a fait pleurer les plus grands (le Prophète ﷺ, An-Najashi…).</p>
+
+  <h3 class="h">Décomposer le terme</h3>
+  <div class="tree">
+    <div class="tree-root">أُصُول التَّفْسِير<br><span style="font-family:'Quicksand';font-size:12px;font-weight:500">Oussoul at-Tafsir</span></div>
+    <div class="stem"></div>
+    <div class="branches">
+      <div class="node pinned"><span class="pin">صل</span>
+        <div class="nt">Oussoul <span class="ar">أُصُول</span></div>
+        <div class="nd">Pluriel de <span class="ar-inline">أَصْل</span> (la base) : ce sur quoi on construit autre chose.</div>
+      </div>
+      <div class="node pinned"><span class="pin">فسّر</span>
+        <div class="nt">Tafsir <span class="ar">تَفْسِير</span></div>
+        <div class="nd">Du verbe <span class="ar-inline">فَسَّرَ</span> : expliquer, exposer. L'explication des versets.</div>
+      </div>
+    </div>
+  </div>
+  <div class="note"><b>Définition complète :</b> les bases scientifiques vers lesquelles revient celui qui explique le Coran et veut distinguer les avis forts des avis faibles qui l'ont précédé. <b>Ouloum al-Qur'an</b> = toutes les connaissances liées au Coran ; oussoul at-tafsir en fait partie.</div>
+
+  <h3 class="h">Ce que traite cette science</h3>
+  <ul class="clean">
+    <li>Les <b>sources</b> du tafsir</li>
+    <li>Les <b>divergences</b> entre savants à propos du tafsir</li>
+    <li>Comment distinguer l'<b>avis le plus fort</b> du plus faible sur un verset</li>
+  </ul>
+
+  <h3 class="h">Évolution de la science</h3>
+  <div class="tree">
+    <div class="branches">
+      <div class="node"><div class="nt">1 · Prophète & compagnons</div><div class="nd">Des références à des règles du tafsir apparaissent dans leurs paroles.</div></div>
+      <div class="node"><div class="nt">2 · Introductions écrites</div><div class="nd">Règles dispersées dans les livres d'exégèse, de Ouloum al-Qur'an et de Oussoul al-Fiqh — jamais regroupées.</div></div>
+      <div class="node" style="border-color:var(--coral-d)"><div class="nt" style="color:var(--coral-d)">3 · Ibn Taymiyyah</div><div class="nd">Son introduction aux bases du tafsir : <span class="hl coral">premier livre où les règles sont regroupées</span>.</div></div>
+    </div>
+  </div>
+</section>
+<!-- ===================== COURS 2 ===================== -->
+<section class="cours" id="c2" style="--accent:var(--rose);--accent-d:var(--rose-d);--tape:var(--mauve)">
+  <span class="c-num">Leçon 2</span>
+  <h2>Les types de versets</h2>
+  <div class="c-ar">أَنْوَاع الآيَات</div>
+  <div class="divider"></div>
+  <p class="lead">Selon qui en saisit le sens, le Coran se répartit en <b>4 sortes de versets</b>.</p>
+
+  <div class="tree">
+    <div class="tree-root">آيَات القُرْآن</div>
+    <div class="stem"></div>
+    <div class="branches">
+      <div class="node pinned"><span class="pin">1</span>
+        <div class="nt">Compris par les savants de la langue</div>
+        <div class="nd">Nécessite un retour au poème et aux paroles des Arabes. Il faut des savants qui préservent la langue et en apprennent les détails profonds.</div>
+      </div>
+      <div class="node pinned"><span class="pin">2</span>
+        <div class="nt">Compris par tout le monde</div>
+        <div class="nd">La <span class="hl sauge">majorité</span> du Coran : Allah a ordonné à tous les musulmans de méditer Ses paroles.</div>
+      </div>
+      <div class="node pinned"><span class="pin">3</span>
+        <div class="nt">Compris par les seuls savants</div>
+        <div class="nd">Tirer règles, principes et jugements demande de nombreuses connaissances. Il faut des savants ayant la science nécessaire.</div>
+      </div>
+      <div class="node pinned" style="border-color:var(--mauve-d)"><span class="pin" style="background:var(--mauve-d)">4</span>
+        <div class="nt" style="color:var(--mauve-d)">Connu d'Allah Seul</div>
+        <div class="nd">Le tafsir des choses cachées : le <b>comment</b> de certains attributs. Ex. <span class="ar-inline">السَّمِيع</span> (Celui qui entend) : on en comprend le sens et l'implication (Le craindre dans nos paroles), mais pas le « comment ». <b>Il est interdit de chercher à l'expliquer.</b></div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ===================== COURS 3 ===================== -->
+<section class="cours" id="c3" style="--accent:var(--coral);--accent-d:var(--coral-d);--tape:var(--ciel)">
+  <span class="c-num">Leçon 3</span>
+  <h2>Tafsir bil-ra'y · le moufassir</h2>
+  <div class="c-ar">التَّفْسِير بِالرَّأْي وَالمُفَسِّر</div>
+  <div class="divider"></div>
+
+  <h3 class="h">Le tafsir par la réflexion <span class="ar">الرَّأْي</span></h3>
+  <p class="lead">Le <b>ra'y</b> désigne la réflexion ; le tafsir bil-ra'y, c'est en faire usage dans l'explication. Méthode condamnée dans de nombreuses paroles des compagnons et tabi'in.</p>
+  <div class="quote"><span class="who">Masrouq</span>« Prenez garde au tafsir, car vous rapportez les paroles d'Allah et les expliquez. »</div>
+
+  <h3 class="h">Quel jugement ?</h3>
+  <div class="split">
+    <div class="s" style="background:rgba(224,147,123,.14);border:1px solid var(--coral-d)">
+      <h4 style="color:var(--coral-d)">Ra'y blâmable</h4>
+      <p>Réflexion <b>sans argument</b>, où la personne suit ses passions. Interdit dans le fiqh et le tafsir.</p>
+    </div>
+    <div class="s" style="background:rgba(159,183,146,.16);border:1px solid var(--sauge-d)">
+      <h4 style="color:var(--sauge-d)">Ra'y permis</h4>
+      <p>Réflexion <b>appuyée sur des arguments</b>. Permise pour juger et faire le tafsir.</p>
+    </div>
+  </div>
+  <div class="quote"><span class="who">Ibn 'Atiyya</span>La condamnation vise celui qui se jette dans l'interprétation sans savoir ce qu'ont dit les savants, sans revenir aux règles de grammaire et de religion. Elle n'empêche pas les savants de la langue, de la grammaire et du fiqh d'expliquer chacun selon sa spécialité.</div>
+
+  <h3 class="h">Les conditions du moufassir</h3>
+  <ol class="num">
+    <li><b>Croyance juste</b>, conforme aux pieux prédécesseurs : s'arrêter aux paroles du Prophète ﷺ, se confiner aux compagnons, salaf et grands savants.</li>
+    <li><b>Volonté et but sains</b> : chercher la seule satisfaction d'Allah, ne pas suivre ses passions, rechercher la vérité.</li>
+    <li><b>La bonne méthode</b> : expliquer un verset par un autre verset, puis la Sunna, puis les compagnons, puis les tabi'in.</li>
+    <li><b>Précision & rigueur</b> dans ce qu'il rapporte, en langue arabe comme en transmission (hadith sahih ou da'if…).</li>
+  </ol>
+  <div class="quote"><span class="who">Az-Zarkachi</span>Celui qui cherche la compréhension de la révélation n'y parviendra pas s'il y a dans son cœur une innovation, l'entêtement au péché, l'orgueil, les passions, ou l'amour de ce bas-monde.</div>
+  <div class="note"><span style="font-family:'Caveat',cursive;font-size:16px;color:var(--coral-d);font-weight:700">Imam Ahmad :</span> « Trois domaines dont les bases ne sont pas solides : la sira, les fitan et la fin des temps, et at-tafsir. »</div>
+
+  <h3 class="h">La traduction</h3>
+  <p class="lead">Transférer le sens des versets d'une langue à l'autre : c'est une <b>forme de tafsir</b>, un travail humain — <b>ce n'est plus le Coran</b>. Le traducteur doit remplir les conditions du moufassir + maîtriser la langue d'arrivée.</p>
+  <ul class="clean">
+    <li>La traduction est un <b>ijtihad</b> : des divergences de traduction sont normales.</li>
+    <li>Les règles du Coran ne s'y appliquent pas (ex. toucher sans pureté).</li>
+    <li>Les <b>récompenses</b> de la lecture du Coran ne s'y appliquent pas : on lit un tafsir.</li>
+  </ul>
+
+  <h3 class="h">Mérites de la science du tafsir</h3>
+  <ul class="clean">
+    <li>Comprendre la parole d'Allah et en méditer les sens.</li>
+    <li>Devenir meilleur : « Le meilleur d'entre vous est celui qui apprend le Coran et l'enseigne. »</li>
+    <li>Imiter les salaf, qui ne dépassaient pas 10 versets sans en saisir le sens et les mettre en pratique.</li>
+  </ul>
+  <div class="quote"><span class="who">Ibn 'Abd al-Barr</span>« Le début de la science est la mémorisation du Coran et sa compréhension ; ce qui aide à le comprendre est obligatoire. »</div>
+</section>
+<!-- ===================== COURS 4 ===================== -->
+<section class="cours" id="c4" style="--accent:var(--mauve);--accent-d:var(--mauve-d);--tape:var(--or)">
+  <span class="c-num">Leçon 4</span>
+  <h2>Histoire du tafsir & ouvrages</h2>
+  <div class="c-ar">تَارِيخ التَّفْسِير</div>
+  <div class="divider"></div>
+
+  <h3 class="h">1 · À l'époque du Prophète ﷺ</h3>
+  <p class="lead">Le Prophète ﷺ comprenait pleinement le Coran ; les compagnons en saisissaient le sens général et revenaient à lui pour les sens profonds. Il ne les a pas blâmés d'avoir réfléchi, mais les a orientés vers la compréhension la plus juste.</p>
+  <div class="quote"><span class="who">Ibn Taymiyyah — Mouqaddima</span>« Il est obligatoire de savoir que le Prophète a expliqué à ses compagnons les sens du Coran tout comme il leur en a transmis les termes. »</div>
+  <div class="note">Le tafsir prophétique se divise en deux : <b>explication directe</b> de certains termes, et <b>explication indirecte</b> — toute la Sunna est une explication du Livre d'Allah.</div>
+
+  <h3 class="h">2 · À l'époque des Compagnons</h3>
+  <p class="lead">Avec les conquêtes, des non-arabophones entrent en Islam : le besoin de tafsir augmente. Trois compagnons ont excellé :</p>
+  <div class="tree">
+    <div class="branches">
+      <div class="node"><div class="nt">Ibn 'Abbas <span class="ar">ابن عباس</span></div><div class="nd">Le Prophète ﷺ invoqua pour qu'Allah lui enseigne l'explication du Livre. Mis en avant par 'Umar. Le plus rapporté en tafsir.</div></div>
+      <div class="node"><div class="nt">'Ali ibn Abi Talib <span class="ar">علي</span></div><div class="nd">Certains font prévaloir ses avis. « Interrogez-moi sur le Livre d'Allah : pour chaque verset je sais s'il fut révélé de jour ou de nuit, en plaine ou en montagne. »</div></div>
+      <div class="node"><div class="nt">Ibn Mas'oud <span class="ar">ابن مسعود</span></div><div class="nd">« Il n'est pas un verset dont j'ignore quand et à propos de qui il fut révélé… »</div></div>
+    </div>
+  </div>
+  <div class="note"><b>Aussi :</b> les 4 califes · Oubayy ibn Ka'b · Zayd ibn Thabit · 'Aisha.</div>
+
+  <h3 class="h">3 · À l'époque des Tabi'in</h3>
+  <div class="pills">
+    <span class="pill">Moujahid</span>
+    <span class="pill">Sa'id ibn Joubayr</span>
+    <span class="pill">Ikrima</span>
+  </div>
+  <div class="mini">
+    <div class="m"><h4>Médine</h4><p>Zayd ibn Aslam</p></div>
+    <div class="m"><h4>Koufa</h4><p>Ibrahim an-Nakha'i · Aswad ibn Yazid</p></div>
+    <div class="m"><h4>Bassora</h4><p>Hassan al-Basri · Mohamed ibn Sirine</p></div>
+  </div>
+
+  <h3 class="h">4 · L'époque de la compilation</h3>
+  <p class="lead">Premiers à consigner le tafsir : <b>Sufyan ath-Thawri</b>, <b>Sufyan ibn 'Uyayna</b>… Approche linguistique : al-Farra, al-Akhfach, Ibn Qutayba.</p>
+  <div class="note"><span style="font-family:'Caveat',cursive;font-size:17px;color:var(--mauve-d);font-weight:700">La référence des tafasir :</span> le <span class="hl rose">Tafsir d'Ibn Jarir at-Tabari</span> — le premier de référence.</div>
+  <h3 class="h" style="font-size:17px">Quelques ouvrages</h3>
+  <ul class="clean">
+    <li>Tafsir at-Tabari · Tafsir al-Baghawi · Tafsir Ibn Kathir</li>
+    <li>Tafsir Cheikh as-Sa'di · Tafsir Mohamed ash-Shanqiti</li>
+    <li><i>Avec certaines erreurs de croyance :</i> Ibn 'Atiyya al-Andaloussi · Ibn al-Jawzi · al-Jalalayn · Tahir ibn 'Achour (asma wa sifat)</li>
+  </ul>
+</section>
+<!-- ===================== COURS 5 ===================== -->
+<section class="cours" id="c5" style="--accent:var(--ciel);--accent-d:var(--ciel-d);--tape:var(--sauge)">
+  <span class="c-num">Leçon 5</span>
+  <h2>Asbab an-nouzoul</h2>
+  <div class="c-ar">أَسْبَاب النُّزُول</div>
+  <div class="divider"></div>
+  <p class="lead">Les causes de la révélation de certains versets.</p>
+
+  <div class="split">
+    <div class="s" style="background:rgba(155,192,212,.16);border:1px solid var(--ciel-d)">
+      <h4 style="color:var(--ciel-d)">Sans cause</h4>
+      <p>Révélés sans événement déclencheur. <b>La majorité</b> du Coran.</p>
+    </div>
+    <div class="s" style="background:rgba(159,183,146,.16);border:1px solid var(--sauge-d)">
+      <h4 style="color:var(--sauge-d)">Avec cause</h4>
+      <p>Révélés à la suite d'un événement particulier.</p>
+    </div>
+  </div>
+
+  <h3 class="h">Définition <span class="ar">(As-Souyouti)</span></h3>
+  <div class="note">Tout événement à propos duquel un verset fut révélé, <b>au moment même</b> où il s'est déroulé. Définition tardive : As-Souyouti exige la simultanéité pour restreindre le domaine (ex. il écarte l'attaque de la Ka'ba comme cause de sourate al-Fil, antérieure à la révélation).</div>
+
+  <h3 class="h">La compréhension large des salaf</h3>
+  <p class="lead">Leurs formulations ne visaient pas toujours une cause directe :</p>
+  <ol class="num">
+    <li>Renvoyer à un <b>récit</b> lié au verset (al-Fil & l'attaque de la Ka'ba).</li>
+    <li><b>Illustrer</b> le sens par un événement (hadith du pire des péchés).</li>
+    <li><b>Argumenter</b> sur une question (hadith de 'Aisha sur la voix dans l'invocation).</li>
+    <li><b>Montrer</b> que le verset s'applique à un événement (al-Moughira & l'assassinat de 'Uthman).</li>
+    <li>Un événement fut <b>vraiment la cause</b> de la révélation.</li>
+  </ol>
+
+  <h3 class="h">Les formulations des compagnons</h3>
+  <div class="split">
+    <div class="s" style="background:var(--creme2);border:1px solid var(--ciel-d)">
+      <h4 style="color:var(--ciel-d)">Explicites</h4>
+      <p>« …et Allah révéla cela » / « ce verset descendit à propos de… » <br>Ex. hadith de 'Aisha (le collier).</p>
+    </div>
+    <div class="s" style="background:var(--creme2);border:1px solid var(--mauve-d)">
+      <h4 style="color:var(--mauve-d)">Non explicites</h4>
+      <p>« Ce verset descendit à propos de cela » : peut viser une cause directe ou autre chose.</p>
+    </div>
+  </div>
+
+  <h3 class="h">Quelques ouvrages</h3>
+  <ul class="clean">
+    <li>'Ali ibn al-Madini (perdu) — savant du hadith, maître d'al-Boukhari</li>
+    <li>Al-Wahidi — récits avec chaînes de transmetteurs</li>
+    <li>Résumé d'al-Wahidi par al-Ja'bari (sans les chaînes)</li>
+    <li>Ibn Hajar — <i>al-'Oujab fi Bayan al-Asbab</i></li>
+    <li>As-Souyouti — <i>Loubab an-Nouqoul fi Asbab an-Nouzoul</i></li>
+  </ul>
+  <div class="quote"><span class="who">Arqama (à Ibn Sirin)</span>« Crains Allah et tiens des propos justes. Ceux qui savent pourquoi les versets sont descendus sont décédés. »</div>
+</section>
+<!-- ===================== COURS 6 ===================== -->
+<section class="cours" id="c6" style="--accent:var(--sauge);--accent-d:var(--sauge-d);--tape:var(--coral)">
+  <span class="c-num">Leçon 6</span>
+  <h2>Règles d'asbab an-nouzoul</h2>
+  <div class="c-ar">قَوَاعِد أَسْبَاب النُّزُول</div>
+  <div class="divider"></div>
+  <div class="note">À retenir : les formulations des salaf ne désignent pas toujours une cause directe — parfois un événement auquel s'applique le verset, ou qui l'illustre.</div>
+
+  <h3 class="h">Les bénéfices <span style="font-family:'Quicksand';font-size:13px;font-weight:600;color:var(--ink2)">(but unique : comprendre le verset)</span></h3>
+  <ul class="clean">
+    <li><b>Mieux comprendre les termes</b> — ex. <span class="ar-inline">إِيمَانَكُم</span> désigne ici la prière.</li>
+    <li><b>Corriger une compréhension</b> — 'Urwa & 'Aisha sur as-Safa et al-Marwa.</li>
+    <li><b>Saisir la sagesse</b> d'une législation — Ibn 'Abbas sur la voix dans la récitation à La Mecque.</li>
+    <li><b>Identifier la personne visée</b> — éviter d'attribuer un verset à tort (Marwan & 'Abd ar-Rahman ibn Abi Bakr, corrigé par 'Aisha).</li>
+  </ul>
+
+  <h3 class="h">Règle 1 — la portée générale</h3>
+  <div class="verset" style="font-size:22px">العِبْرَة بِعُمُوم اللَّفْظ لَا بِخُصُوص السَّبَب
+    <span class="trad">On considère la <span class="hl or">portée générale</span> du terme, non la particularité de la cause.</span>
+  </div>
+  <p>Un verset révélé sur un événement s'applique <b>à tous</b>, pas seulement à la personne qui en fut la cause. Jamais un savant n'a limité un verset à cette seule personne. Ibn Taymiyyah : la divergence porte entre :</p>
+  <ul class="clean">
+    <li>se limiter aux <b>cas semblables</b> à la cause ;</li>
+    <li>ne pas laisser la cause <b>spécifier</b> la généralité du sens.</li>
+  </ul>
+  <div class="note"><b>Ex.</b> hadith « il n'est pas de la piété de jeûner en voyage » : portée générale, ou limité à un cas semblable ? La personne-cause reste <b>la première concernée</b>, mais pas la seule. Vaut pour les jugements comme pour les informations (fin de sourate al-Layl & Abu Bakr).</div>
+
+  <h3 class="h">Règle 2 — plusieurs récits</h3>
+  <ol class="num">
+    <li><b>Distinguer l'authentique du faible.</b> Ex. sourate ad-Douha : le récit de l'interruption (authentique) vs. le chiot mort (faible).</li>
+    <li>Si tous authentiques : séparer <b>cause directe</b> des formulations larges des salaf.</li>
+    <li>Si plusieurs causes directes proches : les événements ont pu <b>se succéder</b>, le verset descendant après.</li>
+    <li>Si très espacés dans le temps : certains parlent de <b>double révélation</b> — mais cette possibilité n'existe pas.</li>
+  </ol>
+</section>
+<!-- ===================== COURS 7 ===================== -->
+<section class="cours" id="c7" style="--accent:var(--or);--accent-d:var(--or-d);--tape:var(--mauve)">
+  <span class="c-num">Leçon 7</span>
+  <h2>Nasikh wa Mansoukh</h2>
+  <div class="c-ar">النَّاسِخ وَالمَنْسُوخ</div>
+  <div class="divider"></div>
+  <p class="lead">Les versets abrogeants et abrogés.</p>
+
+  <div class="split">
+    <div class="s" style="background:var(--creme2);border:1px solid var(--or-d)">
+      <h4 style="color:var(--or-d)">Sens linguistique</h4>
+      <p><span class="ar-inline">النَّسْخ</span> = faire disparaître <span class="ar-inline">الإِزَالَة</span> ou déplacer <span class="ar-inline">النَّقْل</span>.</p>
+    </div>
+    <div class="s" style="background:var(--creme2);border:1px solid var(--mauve-d)">
+      <h4 style="color:var(--mauve-d)">Sens religieux</h4>
+      <p>Lever un jugement (ou abroger ses mots/le texte) par le Coran et/ou la Sunna.</p>
+    </div>
+  </div>
+  <div class="note">Première définition précise : Imam ash-Shafi'i. Nombre d'abrogés faible — As-Souyouti en compte <b>20</b>.</div>
+
+  <h3 class="h">Les 5 sens de « naskh »</h3>
+  <div class="tree">
+    <div class="branches">
+      <div class="node pinned"><span class="pin">1</span><div class="nt">Limiter</div><div class="nd">Restreindre un général. Ibn 'Abbas sur l'autorisation d'entrer dans les maisons inhabitées.</div></div>
+      <div class="node pinned"><span class="pin">2</span><div class="nt">Restreindre</div><div class="nd">Qatada : <span class="ar-inline">حَقَّ تُقَاتِهِ</span> → <span class="ar-inline">مَا اسْتَطَعْتُم</span>. Le jugement reste effectif.</div></div>
+      <div class="node pinned"><span class="pin">3</span><div class="nt">Préciser</div><div class="nd">Abu Hurayra : le 2ᵉ verset précise que le compte ne porte pas sur ce qu'on ne peut s'empêcher de penser.</div></div>
+      <div class="node pinned"><span class="pin">4</span><div class="nt">Suspendre</div><div class="nd">Jugement en suspens faute de conditions : versets de patience (mecquois) « abrogés » par le jihad.</div></div>
+      <div class="node pinned"><span class="pin">5</span><div class="nt">Interdire</div><div class="nd">Rendre interdite une chose licite par principe (nourriture, vêtements…).</div></div>
+    </div>
+  </div>
+
+  <h3 class="h">La preuve dans le Coran</h3>
+  <div class="verset">مَا نَنسَخْ مِنْ آيَةٍ أَوْ نُنسِهَا نَأْتِ بِخَيْرٍ مِّنْهَا أَوْ مِثْلِهَا
+    <span class="trad">Allah abroge aussi les législations entre elles : l'Islam abroge celles qui le précèdent.</span>
+  </div>
+
+  <h3 class="h">Les sagesses de l'abrogation</h3>
+  <ol class="num">
+    <li><b>Éprouver</b> les croyants : voir leur obéissance et soumission.</li>
+    <li><b>Le bienfait</b> d'Allah par l'allègement de certaines règles.</li>
+    <li><b>Éduquer</b> progressivement vers le délaissement des anciennes pratiques et les nouvelles obligations (ex. le jeûne).</li>
+  </ol>
+</section>
+<!-- ===================== COURS 8 ===================== -->
+<section class="cours" id="c8" style="--accent:var(--rose);--accent-d:var(--rose-d);--tape:var(--ciel)">
+  <span class="c-num">Leçon 8</span>
+  <h2>Questions sur l'abrogation</h2>
+  <div class="c-ar">مَسَائِل النَّسْخ</div>
+  <div class="divider"></div>
+  <div class="note">Les textes s'appliquent tant qu'on n'a pas la <b>certitude</b> d'une abrogation. Nul ne peut affirmer qu'un texte est abrogé sans preuve évidente.</div>
+
+  <h3 class="h">Conditions pour juger un texte abrogé</h3>
+  <ol class="num">
+    <li><b>Deux textes</b> de la révélation (obligation/interdiction, pas information). Ni avis de compagnon, ni ijma', ni qiyas ne s'abrogent.</li>
+    <li>Les deux textes doivent être <b>authentiques</b> (condition pour la Sunna, pas le Coran).</li>
+    <li>Le jugement abrogé doit venir <b>d'un texte</b>, non du principe « tout est licite » (ex. l'alcool).</li>
+    <li>Jugements des <b>membres/corps</b>, non du cœur : les textes de croyance ne s'abrogent pas.</li>
+    <li>Jugements <b>particuliers</b>, jamais des règles générales.</li>
+    <li><b>Opposition totale</b> entre les deux : si on peut les concilier, pas d'abrogation.</li>
+    <li>Connaître la <b>chronologie</b> : l'un précède l'autre.</li>
+  </ol>
+
+  <h3 class="h">Qui peut abroger quoi ?</h3>
+  <div class="tree">
+    <div class="branches">
+      <div class="node" style="border-color:var(--sauge-d)"><div class="nt" style="color:var(--sauge-d)">Sans divergence</div><div class="nd">Le Coran abroge le Coran · la Sunna abroge la Sunna.</div></div>
+      <div class="node"><div class="nt">Sunna abroge Coran ?</div><div class="nd"><b>Avis 1 :</b> non, seul le Coran abroge le Coran (ash-Shafi'i, Ahmad, élèves de Malik). <b>Avis 2 :</b> oui, possible. Cas extrêmement rares ; résultat de la divergence très limité.</div></div>
+      <div class="node"><div class="nt">Coran abroge Sunna</div><div class="nd">Ex. la direction de la prière : le verset abroge le hadith ordonnant bayt al-Maqdis → la Ka'ba.</div></div>
+    </div>
+  </div>
+
+  <h3 class="h">Reconnaître l'abrogeant & l'abrogé</h3>
+  <ul class="clean">
+    <li><b>Explicitement</b> — verset suivi de son abrogeant (al-Anfal, le nombre des combattants).</li>
+    <li>Par des <b>indices</b> de formulation moins explicites.</li>
+    <li>Par la <b>chronologie</b> (mecquois / médinois).</li>
+  </ul>
+
+  <h3 class="h">Les types d'abrogation</h3>
+  <div class="mini">
+    <div class="m"><h4>Jugement abrogé, récitation conservée</h4><p>Toujours lu (ex. dans An-Nisa), mais plus appliqué.</p></div>
+    <div class="m"><h4>Récitation abrogée, jugement présent</h4><p>Parole de 'Umar (le verset de la lapidation), appliquée par le Prophète ﷺ.</p></div>
+    <div class="m" style="grid-column:1/-1;border-top-color:var(--mauve-d)"><h4 style="color:var(--mauve-d)">Jugement & récitation abrogés</h4><p>Les deux ont disparu.</p></div>
+  </div>
+</section>
+<!-- ===================== COURS 9 ===================== -->
+<section class="cours" id="c9" style="--accent:var(--coral);--accent-d:var(--coral-d);--tape:var(--or)">
+  <span class="c-num">Leçon 9</span>
+  <h2>Mouhkam & Moutachabih</h2>
+  <div class="c-ar">المُحْكَم وَالمُتَشَابِه</div>
+  <div class="divider"></div>
+  <p class="lead">Les versets explicites et équivoques. Chaque terme a une portée générale (<span class="ar-inline">عَامّ</span>) et une portée restreinte (<span class="ar-inline">خَاصّ</span>).</p>
+
+  <div class="split">
+    <div class="s" style="background:rgba(159,183,146,.16);border:1px solid var(--sauge-d)">
+      <h4 style="color:var(--sauge-d)">Mouhkam</h4>
+      <p><b>'aam</b> : tout le Livre est perfection (al-itqan), sans contradiction. <br><b>khas</b> : ce qui est clair et explicite (sourate Ali 'Imran).</p>
+    </div>
+    <div class="s" style="background:rgba(224,147,123,.14);border:1px solid var(--coral-d)">
+      <h4 style="color:var(--coral-d)">Moutachabih</h4>
+      <p><b>'aam</b> : les versets se ressemblent en beauté et homogénéité. <br><b>khas</b> : l'équivoque, ce qui peut sembler ambigu.</p>
+    </div>
+  </div>
+
+  <h3 class="h">Deux sortes d'ambiguïté</h3>
+  <div class="tree">
+    <div class="branches">
+      <div class="node pinned"><span class="pin">١</span>
+        <div class="nt">Relative <span class="ar">التَّشَابُه النِّسْبِي</span></div>
+        <div class="nd">Le sens est clair en lui-même, mais peut troubler par <b>ignorance</b> ou mauvaise intention. <b>Non définitif</b> : en apprenant, l'ambiguïté disparaît.</div>
+      </div>
+      <div class="node pinned" style="border-color:var(--mauve-d)"><span class="pin" style="background:var(--mauve-d)">٢</span>
+        <div class="nt" style="color:var(--mauve-d)">Réelle <span class="ar">التَّشَابُه الحَقِيقِي</span></div>
+        <div class="nd">Méconnaissance réelle de ce qu'Allah Seul connaît. Ne concerne <b>pas</b> la signification des versets. <span class="hl rose">Aucun verset ni hadith n'est ambigu.</span></div>
+      </div>
+    </div>
+  </div>
+
+  <h3 class="h">Causes du manque de clarté</h3>
+  <ul class="clean">
+    <li>Ignorance de la langue arabe et des coutumes de l'époque.</li>
+    <li>Incapacité à <b>corréler</b> les versets entre eux.</li>
+    <li>Verset global expliqué ailleurs (ex. la prière).</li>
+    <li>Un terme à plusieurs significations.</li>
+    <li>Confondre l'usage d'un terme selon les contextes (ex. la menace de l'Enfer : éternelle pour les mécréants, non pour les pécheurs musulmans).</li>
+  </ul>
+</section>
+<!-- ===================== COURS 10 ===================== -->
+<section class="cours" id="c10" style="--accent:var(--mauve);--accent-d:var(--mauve-d);--tape:var(--sauge)">
+  <span class="c-num">Leçon 10</span>
+  <h2>La signification du Ta'wil</h2>
+  <div class="c-ar">التَّأْوِيل</div>
+  <div class="divider"></div>
+  <p class="lead">De la racine <span class="ar-inline">أوَّل</span> : revenir, retourner. <span class="ar-inline">المآل</span> = l'endroit vers lequel on revient. Deux sens chez les premières générations :</p>
+
+  <div class="split">
+    <div class="s" style="background:var(--creme2);border:1px solid var(--mauve-d)">
+      <h4 style="color:var(--mauve-d)">Sens 1</h4>
+      <p>Le <b>tafsir</b>, l'explication d'une parole. (Invocation pour Ibn 'Abbas ; ash-Shafi'i, at-Tabari.)</p>
+    </div>
+    <div class="s" style="background:var(--creme2);border:1px solid var(--ciel-d)">
+      <h4 style="color:var(--ciel-d)">Sens 2</h4>
+      <p>La <b>réalisation</b> d'une parole (information ou ordre). (Sourate Yusuf v.100.)</p>
+    </div>
+  </div>
+  <div class="quote"><span class="who">Ibn Mas'oud</span>« Le ta'wil a précédé certains versets, d'autres se sont réalisés du vivant du Prophète, d'autres après lui, d'autres à mon époque, et d'autres se réaliseront à l'Heure. »</div>
+
+  <h3 class="h">Le sens tardif</h3>
+  <div class="note">Délaisser le sens apparent vers un sens <b>moins apparent</b>, grâce à une preuve indiquant que l'apparent n'est pas voulu. Ex. « un lion a fait la khotba » = un homme courageux.</div>
+  <div class="quote"><span class="who">Ibn Taymiyyah</span>Délaisser le sens apparent avec preuve, les salaf le considèrent comme une forme de <b>tafsir</b>. Ce qu'ils condamnaient : les ta'wilat qui détournent les propos d'Allah et de Son Messager.</div>
+
+  <h3 class="h">Conditions d'un ta'wil juste</h3>
+  <ul class="clean">
+    <li>Une signification <b>possible</b> du terme en langue arabe.</li>
+    <li>Prendre en compte le <b>contexte</b>.</li>
+    <li>Un <b>argument fort</b> pour délaisser l'apparent.</li>
+    <li>Qu'aucun autre élément ne <b>rejette</b> ce second sens.</li>
+  </ul>
+  <div class="note"><b>Ex. accepté :</b> <span class="ar-inline">نَسُوا اللَّهَ فَنَسِيَهُم</span> — « oublier » au sens de « délaisser », car Allah dit qu'Il n'oublie pas. Sans preuve, c'est du <b>tahrif</b> (déformation). Le ta'wil des innovateurs (ex. « mizan » = la justice) est rejeté : il ouvre la porte à nier le paradis, l'enfer…</div>
+
+  <h3 class="h">Lien avec mouhkam / moutachabih</h3>
+  <ol class="num">
+    <li>Moutachabih = peu clair par ignorance → ta'wil = l'explication connue d'Allah et des gens de science. <b>Juste</b></li>
+    <li>Moutachabih = l'invisible inconnu → ta'wil = la réalisation, connue d'Allah Seul. <b>Juste</b></li>
+    <li><i>Sens erroné des innovateurs :</i> les attributs seraient incompréhensibles. Or les gens de la Sunna : on ne connaît pas le « comment », mais on <b>en comprend le sens</b>.</li>
+  </ol>
+</section>
+<!-- ===================== COURS 11 ===================== -->
+<section class="cours" id="c11" style="--accent:var(--ciel);--accent-d:var(--ciel-d);--tape:var(--rose)">
+  <span class="c-num">Leçon 11</span>
+  <h2>Le miracle du Coran</h2>
+  <div class="c-ar">إِعْجَاز القُرْآن</div>
+  <div class="divider"></div>
+
+  <div class="split">
+    <div class="s" style="background:var(--creme2);border:1px solid var(--ciel-d)">
+      <h4 style="color:var(--ciel-d)">I'jaz <span class="ar">إِعْجَاز</span></h4>
+      <p>De <span class="ar-inline">عَجَزَ</span> (être incapable). Rendre les défieurs <b>incapables</b> de produire une sourate semblable.</p>
+    </div>
+    <div class="s" style="background:var(--creme2);border:1px solid var(--mauve-d)">
+      <h4 style="color:var(--mauve-d)">Mou'jiza <span class="ar">مُعْجِزَة</span></h4>
+      <p>Le miracle : ce qui a rendu humains et djinns <b>incapables</b>.</p>
+    </div>
+  </div>
+  <div class="note">Ibn 'Uthaymin et Ibn Taymiyyah préfèrent les termes du Coran : <span class="ar-inline">آية</span> (signe), <span class="ar-inline">بُرْهَان</span> (preuve), <span class="ar-inline">بَيِّنَة</span> (preuve évidente) — car « mou'jiza » sert aussi pour l'extraordinaire négatif (sorcellerie). Le Coran est le <span class="hl ciel">plus grand</span> signe de la véracité du Prophète ﷺ, sans être le seul.</div>
+
+  <h3 class="h">Les particularités du miracle</h3>
+  <div class="tree">
+    <div class="branches">
+      <div class="node"><div class="nt">Continu & permanent</div><div class="nd">Les preuves traversent le temps : nous lisons encore aujourd'hui son éloquence. Les Arabes les plus éloquents ont échoué — les suivants y parviendront encore moins.</div></div>
+      <div class="node"><div class="nt">Dans le domaine d'excellence du peuple</div><div class="nd">Moussa & la sorcellerie · 'Issa & la médecine · Muhammad ﷺ & l'<b>éloquence</b> — une révélation au-dessus de toute parole humaine. Ils ont eu recours à la force, preuve de leur incapacité.</div></div>
+    </div>
+  </div>
+
+  <h3 class="h">As-Sarfa <span class="ar">الصَّرْفَة</span></h3>
+  <p class="lead">Thèse mu'tazilite : Allah aurait <b>détourné</b> les gens (l'ambition ou la capacité) d'imiter le Coran.</p>
+  <div class="note"><b>Avis très faible :</b> il rendrait le Coran non exceptionnel ; or les Arabes n'ont cessé d'attester son éloquence, et certains ont <i>tenté</i> de l'imiter (Mousaylima le menteur) — preuve qu'il n'y a pas eu de simple détournement.</div>
+
+  <h3 class="h">Les étapes du défi</h3>
+  <ol class="num">
+    <li>Le Coran <b>en entier</b> — humains et djinns réunis (al-Isra).</li>
+    <li><b>Dix</b> sourates semblables (Hud).</li>
+    <li><b>Une seule</b> sourate, longue ou courte (al-Baqara) — l'éloquent le plus habile en serait incapable.</li>
+  </ol>
+  <div class="note"><b>Ouvrages :</b> <i>Nadhm al-Qur'an</i> (al-Jahidh) · <i>I'jaz al-Qur'an</i> (al-Khattabi).</div>
+</section>
+<!-- ===================== COURS 12 ===================== -->
+<section class="cours" id="c12" style="--accent:var(--sauge);--accent-d:var(--sauge-d);--tape:var(--or)">
+  <span class="c-num">Leçon 12</span>
+  <h2>Les aspects du miracle</h2>
+  <div class="c-ar">أَوْجُه الإِعْجَاز</div>
+  <div class="divider"></div>
+
+  <h3 class="h">L'éloquence <span class="ar">البَلَاغَة</span></h3>
+  <div class="tree">
+    <div class="branches">
+      <div class="node"><div class="nt">Structuration parfaite <span class="ar">حُسْن التَّقْسِيم</span></div><div class="nd">Al-Fatiha : 1ʳᵉ partie la louange, 2ᵉ l'invocation.</div></div>
+      <div class="node"><div class="nt">Allitération <span class="ar">الجِنَاس</span></div><div class="nd">Beauté et répétition sonore.</div></div>
+      <div class="node"><div class="nt">Anti-thèse <span class="ar">الطِّبَاق</span></div><div class="nd">Deux notions opposées côte à côte.</div></div>
+      <div class="node"><div class="nt">Comparaison <span class="ar">التَّشْبِيه</span></div><div class="nd">Renvoyer aux sens les plus forts et nobles.</div></div>
+    </div>
+  </div>
+  <ul class="clean">
+    <li>Textes répétés sous des formes légèrement différentes, aux notions très précises.</li>
+    <li>Versets <b>concis</b> aux sens nobles et nombreux.</li>
+    <li>Versets en accord avec leur contexte (at-Tawba sans basmala : annonce de guerre).</li>
+    <li>Termes toujours beaux, sans lourdeur, malgré la répétition de certaines lettres.</li>
+  </ul>
+
+  <h3 class="h">La sagesse & la signification</h3>
+  <div class="quote"><span class="who">Ibn Taymiyyah</span>« Le miracle des sens du Coran est plus grand encore que celui de ses termes. Les plus sages de l'humanité sont incapables de produire une sagesse semblable. »</div>
+
+  <h3 class="h">L'effet sur le cœur</h3>
+  <p class="lead">Il fait couler les larmes, raffermit les cœurs, émerveille ; on ne s'en lasse jamais.</p>
+  <div class="verset" style="font-size:19px">لَوْ أَنزَلْنَا هَٰذَا القُرْآنَ عَلَىٰ جَبَلٍ لَّرَأَيْتَهُ خَاشِعًا مُّتَصَدِّعًا مِّنْ خَشْيَةِ اللَّهِ</div>
+
+  <h3 class="h">La véracité</h3>
+  <div class="mini">
+    <div class="m"><h4>Dans le passé</h4><p>Récits des prophètes et nations, ignorés du peuple, mentionnés avec justesse.</p></div>
+    <div class="m"><h4>Dans l'avenir</h4><p>Allah annonce ce qui se réalisera comme annoncé.</p></div>
+    <div class="m"><h4>Miracles scientifiques</h4><p>Références à l'univers inconnues à l'époque.</p></div>
+    <div class="m" style="border-top-color:var(--coral-d)"><h4 style="color:var(--coral-d)">Miracles numériques</h4><p>Domaine d'erreurs ; superficiel, on ne s'y appuie pas.</p></div>
+  </div>
+  <div class="note"><b>Précautions :</b> ne pas en faire un livre de mathématiques ou de biologie. Les hypothèses scientifiques restent des hypothèses. Respecter les règles du tafsir : ne pas s'opposer aux salaf, sens possible en arabe, contexte global, ne pas limiter le verset à une hypothèse.</div>
+  <div class="quote"><span class="who">Ibn Rajab</span>Sur les 27 de Laylat al-Qadr (9 lettres × 3) : « Cela fait partie du tafsir superficiel qu'on peut mentionner mais sur lequel on ne s'appuie pas. »</div>
+</section>
+<!-- ===================== COURS 13 ===================== -->
+<section class="cours" id="c13" style="--accent:var(--or);--accent-d:var(--or-d);--tape:var(--coral)">
+  <span class="c-num">Leçon 13</span>
+  <h2>Les paraboles · al-Amthal</h2>
+  <div class="c-ar">أَمْثَال القُرْآن</div>
+  <div class="divider"></div>
+  <p class="lead">Sens commun du terme <span class="ar-inline">مَثَل</span> : établir une <b>comparaison entre deux choses</b>. Ibn Faris en relève plusieurs sens :</p>
+
+  <ul class="clean">
+    <li><span class="ar-inline">مَثَل</span> — comparaison, parallèle.</li>
+    <li><span class="ar-inline">أمْثَل السُّلْطَان</span> — le roi a mis à mort (réciprocité).</li>
+    <li>Le proverbe <span class="ar-inline">ضَيَّعتِ الصَّيفَ اللَّبَن</span> « l'été a gâché le lait » — dit en contexte, répété aux situations semblables.</li>
+    <li><span class="ar-inline">المُثْلَة</span> — la mutilation (interdite en Islam).</li>
+    <li><span class="ar-inline">أمْثَل</span> — le plus honorable, le plus exemplaire.</li>
+  </ul>
+  <div class="note">Chez les savants de la balagha : <span class="ar-inline">مَثَل</span> = figure de style établissant une comparaison. On ne peut appliquer toute la définition linguistique aux versets — Ibn al-Qayyim a un ouvrage dédié.</div>
+
+  <h3 class="h">Les 3 catégories d'amthal</h3>
+  <div class="tree">
+    <div class="tree-root">أَمْثَال</div>
+    <div class="stem"></div>
+    <div class="branches">
+      <div class="node pinned"><span class="pin">١</span><div class="nt">Explicites <span class="ar">المُصَرَّحَة</span></div><div class="nd">Comparaison déclarée (ex. l'eau et l'écume : le vrai et le faux).</div></div>
+      <div class="node pinned"><span class="pin">٢</span><div class="nt">Cachées <span class="ar">الكَامِنَة</span></div><div class="nd">Le sens rejoint un proverbe arabe — ex. <span class="ar-inline">خَيْر الأُمُور الوَسَط</span> (le juste milieu).</div></div>
+      <div class="node pinned"><span class="pin">٣</span><div class="nt">Libres <span class="ar">المُرْسَلَة</span></div><div class="nd">Versets utilisables comme proverbes — <span class="ar-inline">هَلْ جَزَاءُ الإِحْسَانِ إِلَّا الإِحْسَان</span>.</div></div>
+    </div>
+  </div>
+
+  <h3 class="h">Jugement de cet usage</h3>
+  <div class="note">Est-il permis d'employer un verset hors de son contexte ? <b>Avis retenu :</b> permis si fait avec respect ; interdit sous le ton de la plaisanterie ou pour s'attribuer ce qu'Allah s'est attribué. (Certains malikites l'interdisent dans les poèmes.)</div>
+
+  <h3 class="h">Avantages des paraboles</h3>
+  <ul class="clean">
+    <li>Mieux comprendre les choses abstraites.</li>
+    <li>Exprimer beaucoup en peu de mots, sous une forme forte.</li>
+    <li>Encourager le bien, mettre en garde contre le mal.</li>
+    <li>Exposer le vrai et le faux avec leurs arguments.</li>
+    <li>Pousser à méditer et marquer les esprits.</li>
+  </ul>
+</section>
+<!-- ===================== COURS 14 ===================== -->
+<section class="cours" id="c14" style="--accent:var(--rose);--accent-d:var(--rose-d);--tape:var(--ciel)">
+  <span class="c-num">Leçon 14</span>
+  <h2>Les serments · al-Qasam</h2>
+  <div class="c-ar">القَسَم فِي القُرْآن</div>
+  <div class="divider"></div>
+  <p class="lead"><span class="ar-inline">القَسَم</span> : jurer, insister sur une information et la confirmer en mentionnant une chose importante.</p>
+
+  <h3 class="h">Les 3 composantes du serment</h3>
+  <div class="tree">
+    <div class="branches">
+      <div class="node pinned"><span class="pin">١</span><div class="nt">Le verbe jurer</div><div class="nd"><span class="ar-inline">أُقْسِمُ</span> / <span class="ar-inline">أَحْلِفُ</span>, suivi de la particule <span class="ar-inline">بـ</span>. Souvent sous-entendu (waw, ta, ba).</div></div>
+      <div class="node pinned"><span class="pin">٢</span><div class="nt">Ce par quoi on jure <span class="ar">المُقْسَم بِه</span></div></div>
+      <div class="node pinned"><span class="pin">٣</span><div class="nt">Ce à propos de quoi on jure <span class="ar">المُقْسَم عَلَيه</span></div></div>
+    </div>
+  </div>
+  <div class="pills">
+    <span class="pill"><span class="ar">بِالله</span></span>
+    <span class="pill"><span class="ar">وَالله</span></span>
+    <span class="pill"><span class="ar">تَالله</span></span>
+  </div>
+
+  <h3 class="h">Les formes de serment</h3>
+  <div class="split">
+    <div class="s" style="background:var(--creme2);border:1px solid var(--rose-d)">
+      <h4 style="color:var(--rose-d)">Par Lui-Même</h4>
+      <p><b>7 passages</b>, dont 3 adressés au Prophète ﷺ.</p>
+    </div>
+    <div class="s" style="background:var(--creme2);border:1px solid var(--ciel-d)">
+      <h4 style="color:var(--ciel-d)">Par Ses créatures</h4>
+      <p>Certains signes : al-Fajr, at-Tin…</p>
+    </div>
+  </div>
+  <div class="note"><b>Jurer par autre qu'Allah</b> est interdit — une forme de shirk, plus grave que les grands péchés. <b>Mineur</b> si le serment vénère plus Allah ; <b>majeur</b> s'il le met au même niveau qu'Allah.</div>
+
+  <h3 class="h">Les 5 thèmes du serment</h3>
+  <ol class="num">
+    <li>Le <b>Tawhid</b>, fondement de la foi.</li>
+    <li>La <b>véracité du Coran</b>.</li>
+    <li>La <b>véracité du Prophète</b> ﷺ.</li>
+    <li>Le Jour de la <b>Résurrection</b> et son caractère inéluctable.</li>
+    <li>Les différentes <b>situations de l'être humain</b>.</li>
+  </ol>
+  <div class="note">Le serment est parfois explicite, parfois sous-entendu (reconnu par le laam). On retrouve souvent le <span class="ar-inline">لا</span> de la négation qui le confirme.</div>
+
+  <h3 class="h">Quelques correspondances</h3>
+  <ul class="clean">
+    <li><b>Ach-Chams & Thamoud</b> — soleil et lune (preuves évidentes), comme la chamelle qu'ils ont rejetée.</li>
+    <li><b>An-Najm & le Prophète</b> — l'étoile guide le voyageur, comme le Prophète guide.</li>
+    <li><b>Ad-Douha & le Prophète</b> — le retour de la lumière après l'interruption de la révélation.</li>
+  </ul>
+</section>
+<!-- ===================== COURS 15 ===================== -->
+<section class="cours" id="c15" style="--accent:var(--coral);--accent-d:var(--coral-d);--tape:var(--sauge)">
+  <span class="c-num">Leçon 15</span>
+  <h2>Les 6 sources du tafsir</h2>
+  <div class="c-ar">طُرُق التَّفْسِير</div>
+  <div class="divider"></div>
+  <p class="lead">Six manières d'expliquer le Coran, par ordre de priorité.</p>
+
+  <div class="tree">
+    <div class="tree-root">طُرُق التَّفْسِير</div>
+    <div class="stem"></div>
+    <div class="branches">
+      <div class="node pinned"><span class="pin">١</span><div class="nt">Le Coran par le Coran</div><div class="nd"><span class="hl sauge">Référence prioritaire</span> : nul ne connaît mieux le sens qu'Allah. Réf. Ibn Kathir · ash-Shanqiti (<i>Adwa al-Bayan</i>). 3 façons : verset global expliqué ailleurs, généralité restreinte, terme expliqué par un autre.</div></div>
+      <div class="node pinned"><span class="pin">٢</span><div class="nt">Le Coran par la Sunna</div><div class="nd">Expliquer le Coran fait partie des missions du Prophète ﷺ. 3 façons : explication directe, réponse aux questions, mise en pratique.</div></div>
+      <div class="node pinned"><span class="pin">٣</span><div class="nt">Par la parole des compagnons</div><div class="nd">Témoins de la révélation, maîtres de l'arabe, connaissant le contexte, sincères. Sources : Coran, Sunna, langue, réflexion, israïliyyat.</div></div>
+      <div class="node pinned"><span class="pin">٤</span><div class="nt">Par la parole des tabi'in</div><div class="nd">Élèves des compagnons, langue préservée, science et piété. Mêmes sources + les compagnons.</div></div>
+      <div class="node pinned"><span class="pin">٥</span><div class="nt">Par la langue arabe</div><div class="nd">Référence pour comprendre — mais interdit d'aller contre les salaf, même si l'avis paraît juste linguistiquement.</div></div>
+      <div class="node pinned"><span class="pin">٦</span><div class="nt">Par la réflexion (ra'y)</div><div class="nd"><b>Blâmable</b> sans science et par passion ; <b>louable</b> issu d'une personne apte (savants, compagnons, tabi'in).</div></div>
+    </div>
+  </div>
+
+  <h3 class="h">Les israïliyyat</h3>
+  <p class="lead">Les compagnons s'y référaient parfois sans s'y appuyer totalement. Usage <b>permis</b>, en 3 catégories :</p>
+  <ul class="clean">
+    <li><b>Confirmés</b> par nos textes — on y croit.</li>
+    <li><b>Inconnus</b> — on ne croit ni ne rejette.</li>
+    <li><b>Rejetés</b> par nos textes.</li>
+  </ul>
+
+  <h3 class="h">Statut de la parole d'un compagnon</h3>
+  <div class="mini">
+    <div class="m"><h4>Invisible / circonstances</h4><p>Implicitement attribuée au Prophète ﷺ — fait partie de la Sunna (ne se déduit pas par la raison).</p></div>
+    <div class="m"><h4>Issue d'un ijtihad</h4><p>Unanime → ijma' à suivre · divergent → chercher l'avis fort · unique → à prendre, ne pas délaisser.</p></div>
+  </div>
+  <div class="note"><b>Tabi'in :</b> même logique (en vérifiant l'authenticité). Inventer un avis nouveau : rejeté s'il contredit compagnons et tabi'in ; permis s'il s'inscrit dans leurs avis, même formulé autrement.</div>
+</section>
+<!-- ===================== COURS 16 ===================== -->
+<section class="cours" id="c16" style="--accent:var(--mauve);--accent-d:var(--mauve-d);--tape:var(--rose)">
+  <span class="c-num">Leçon 16</span>
+  <h2>La divergence dans le tafsir</h2>
+  <div class="c-ar">الاخْتِلَاف فِي التَّفْسِير</div>
+  <div class="divider"></div>
+  <p class="lead">Deux types de divergence.</p>
+
+  <div class="tree">
+    <div class="tree-root">الاخْتِلَاف</div>
+    <div class="stem"></div>
+    <div class="branches">
+      <div class="node" style="border-color:var(--sauge-d)"><div class="nt" style="color:var(--sauge-d)">De forme <span class="ar">اخْتِلَاف التَّنَوُّع</span></div><div class="nd">Les avis ne s'opposent pas : adopter l'un n'oblige pas à rejeter les autres. <span class="hl sauge">La majorité</span> des divergences du tafsir.</div></div>
+      <div class="node" style="border-color:var(--coral-d)"><div class="nt" style="color:var(--coral-d)">De fond <span class="ar">اخْتِلَاف التَّضَادّ</span></div><div class="nd">Avis opposés et contradictoires : adopter l'un implique de rejeter le second.</div></div>
+    </div>
+  </div>
+
+  <h3 class="h">La divergence de forme — 2 sortes</h3>
+  <div class="split">
+    <div class="s" style="background:var(--creme2);border:1px solid var(--sauge-d)">
+      <h4 style="color:var(--sauge-d)">Même sens</h4>
+      <p><span class="ar-inline">أُولِي الأَمْر</span> = savants ou commandants ; <span class="ar-inline">الماعون</span> = zakat ou ustensiles (Ikrima : les deux).</p>
+    </div>
+    <div class="s" style="background:var(--creme2);border:1px solid var(--ciel-d)">
+      <h4 style="color:var(--ciel-d)">Sens différents</h4>
+      <p>Renvoient à des choses différentes, mais sans s'opposer — tous acceptables.</p>
+    </div>
+  </div>
+  <h3 class="h" style="font-size:17px">Catégories de forme</h3>
+  <ul class="clean">
+    <li><b>Notion unique</b> à plusieurs caractéristiques — <span class="ar-inline">صِرَاط</span> : Islam, Coran, Sunna (tous = le droit chemin).</li>
+    <li><b>Notion générale</b> englobant plusieurs individus (<span class="ar-inline">النَّعِيم</span>).</li>
+    <li><b>Homonymes</b> <span class="ar-inline">الأَلْفَاظ المُشْتَرَكَة</span> — <span class="ar-inline">قَسْوَرَة</span> : chasseur ou lion.</li>
+    <li><b>Notion commune</b> précisée par le contexte (<span class="ar-inline">الخُنَّس</span>).</li>
+  </ul>
+
+  <h3 class="h">Les causes de divergence</h3>
+  <ol class="num">
+    <li><b>Homonymes</b> : sens compatibles (forme) ex. <span class="ar-inline">عَسْعَس</span> (la nuit arrive/part) ; ou opposés (fond) ex. <span class="ar-inline">قُرُوء</span> (règles/pureté).</li>
+    <li><b>Pronom</b> renvoyant à plusieurs référents (Allah ou les œuvres).</li>
+    <li><b>Racines</b> différentes d'un même mot (forme passive/active).</li>
+    <li><b>Abrogé / non-abrogé</b> : avis divergents (mariage avec les gens du Livre).</li>
+    <li><b>Une description</b> visant plusieurs choses (<span class="ar-inline">خُنَّس</span>).</li>
+    <li><b>Plusieurs lectures</b> (qira'at) d'un même verset.</li>
+  </ol>
+
+  <div class="foot">qu'Allah facilite tes révisions, Asma — 16 leçons de Oussoul at-Tafsir<br><span class="small">Prise de note de S.A · semestre 1</span></div>
+</section>
+
+<!-- ===================== RÉCAPITULATIF ===================== -->
+<section class="recap" id="recap">
+  <div class="recap-banner">
+    <h2>Récapitulatif</h2>
+    <span class="ar">خُلَاصَة أُصُول التَّفْسِير</span>
+    <p>Les 16 leçons d'un coup d'œil — touche une carte pour y aller.</p>
+  </div>
+  <div class="recap-body">
+
+    <div class="recap-h">La carte des leçons</div>
+    <div class="chips">
+      <a class="chip" data-go="c1" style="--cc:var(--or);--cc2:var(--coral)"><span class="n">1</span><span class="t">Définitions</span><span class="e">Oussoul = bases · Tafsir = explication</span></a>
+<a class="chip" data-go="c2" style="--cc:var(--rose);--cc2:var(--mauve)"><span class="n">2</span><span class="t">Types de versets</span><span class="e">4 sortes selon qui comprend</span></a>
+<a class="chip" data-go="c3" style="--cc:var(--coral);--cc2:var(--or)"><span class="n">3</span><span class="t">Ra’y & moufassir</span><span class="e">Blâmable / permis · 4 conditions</span></a>
+<a class="chip" data-go="c4" style="--cc:var(--mauve);--cc2:var(--rose)"><span class="n">4</span><span class="t">Histoire</span><span class="e">Prophète → compagnons → tabi’in</span></a>
+<a class="chip" data-go="c5" style="--cc:var(--ciel);--cc2:var(--sauge)"><span class="n">5</span><span class="t">Asbab nouzoul</span><span class="e">Causes de la révélation</span></a>
+<a class="chip" data-go="c6" style="--cc:var(--sauge);--cc2:var(--ciel)"><span class="n">6</span><span class="t">Règles asbab</span><span class="e"><span class="ar">العِبْرَة بِعُمُوم اللَّفْظ</span></span></a>
+<a class="chip" data-go="c7" style="--cc:var(--or);--cc2:var(--coral)"><span class="n">7</span><span class="t">Nasikh / Mansoukh</span><span class="e">5 sens de naskh</span></a>
+<a class="chip" data-go="c8" style="--cc:var(--rose);--cc2:var(--mauve)"><span class="n">8</span><span class="t">Abrogation</span><span class="e">7 conditions · qui abroge quoi</span></a>
+<a class="chip" data-go="c9" style="--cc:var(--coral);--cc2:var(--or)"><span class="n">9</span><span class="t">Mouhkam / Moutachabih</span><span class="e">Clair vs équivoque · 2 ambiguïtés</span></a>
+<a class="chip" data-go="c10" style="--cc:var(--mauve);--cc2:var(--rose)"><span class="n">10</span><span class="t">Ta’wil</span><span class="e">Tafsir · réalisation · sens tardif</span></a>
+<a class="chip" data-go="c11" style="--cc:var(--ciel);--cc2:var(--sauge)"><span class="n">11</span><span class="t">I’jaz</span><span class="e">Miracle · défi en 3 étapes</span></a>
+<a class="chip" data-go="c12" style="--cc:var(--sauge);--cc2:var(--ciel)"><span class="n">12</span><span class="t">Aspects du miracle</span><span class="e">Balagha · sens · effet · véracité</span></a>
+<a class="chip" data-go="c13" style="--cc:var(--or);--cc2:var(--coral)"><span class="n">13</span><span class="t">Amthal</span><span class="e">3 catégories de paraboles</span></a>
+<a class="chip" data-go="c14" style="--cc:var(--rose);--cc2:var(--mauve)"><span class="n">14</span><span class="t">Qasam</span><span class="e">3 composantes · 5 thèmes</span></a>
+<a class="chip" data-go="c15" style="--cc:var(--coral);--cc2:var(--or)"><span class="n">15</span><span class="t">6 sources</span><span class="e">Coran → … → ra’y</span></a>
+<a class="chip" data-go="c16" style="--cc:var(--mauve);--cc2:var(--rose)"><span class="n">16</span><span class="t">Divergence</span><span class="e"><span class="ar">تَنَوُّع</span> vs <span class="ar">تَضَادّ</span></span></a>
+    </div>
+
+    <!-- ===== BLOC 1 : FONDEMENTS ===== -->
+    <div class="recap-grp" style="--g1:var(--or);--g2:var(--coral-d)">Fondements<span class="ar">الأُسُس</span></div>
+
+    <div class="recap-h">Mérites du Coran</div>
+    <div class="crow">
+      <div class="cbox" style="--cc:var(--or);--cc2:var(--or-d)"><span class="ttl">Sa grandeur</span><span class="ds">Allah a <b>juré</b> par lui · annoncé dans les livres précédents · livre <b>béni</b> · meilleure des paroles.</span></div>
+      <div class="cbox" style="--cc:var(--coral);--cc2:var(--coral-d)"><span class="ttl">Ses qualités</span><span class="ds"><b>Miséricorde</b> & guide · protégé des démons · sans contradiction · fait pleurer les plus grands.</span></div>
+    </div>
+
+    <div class="recap-h">Les 4 types de tafsir des versets</div>
+    <div class="crow">
+      <div class="cbox" style="--cc:var(--ciel);--cc2:var(--ciel-d)"><span class="ttl">1 · Savants de la langue</span><span class="ds">Sens connu par <b>retour au poème</b> et aux paroles des Arabes. Il faut des savants qui préservent la langue.</span></div>
+      <div class="cbox" style="--cc:var(--sauge);--cc2:var(--sauge-d)"><span class="ttl">2 · Compris par tous</span><span class="ds">La <b>majorité</b> du Coran : Allah a ordonné à tous de méditer Ses paroles.</span></div>
+      <div class="cbox" style="--cc:var(--or);--cc2:var(--or-d)"><span class="ttl">3 · Les seuls savants</span><span class="ds">Tirer <b>règles, principes, jugements</b> : demande la science nécessaire.</span></div>
+      <div class="cbox" style="--cc:var(--mauve);--cc2:var(--mauve-d)"><span class="ttl">4 · Allah Seul</span><span class="ds">Le <b>« comment »</b> des attributs (<span class="ar">السَّمِيع</span>). Interdit de chercher à l'expliquer.</span></div>
+    </div>
+
+    <div class="recap-h">Le tafsir bil-ra'y : 2 cas</div>
+    <div class="duo">
+      <div class="d" style="--cc:var(--coral);--cc2:var(--coral-d)"><h4>Blâmable</h4><p>Réflexion <b>sans argument</b>, suivant les passions. Interdit.</p></div>
+      <div class="d" style="--cc:var(--sauge);--cc2:var(--sauge-d)"><h4>Permis</h4><p>Réflexion <b>appuyée sur des preuves</b>, par une personne apte.</p></div>
+    </div>
+
+    <div class="recap-h">Les 4 conditions du moufassir</div>
+    <div class="crow">
+      <div class="cbox" style="--cc:var(--rose);--cc2:var(--rose-d)"><span class="ttl">1 · Croyance juste</span><span class="ds">Conforme aux salaf.</span></div>
+      <div class="cbox" style="--cc:var(--or);--cc2:var(--or-d)"><span class="ttl">2 · But sain</span><span class="ds">Chercher Allah Seul.</span></div>
+      <div class="cbox" style="--cc:var(--ciel);--cc2:var(--ciel-d)"><span class="ttl">3 · Bonne méthode</span><span class="ds">Coran → Sunna → compagnons → tabi'in.</span></div>
+      <div class="cbox" style="--cc:var(--mauve);--cc2:var(--mauve-d)"><span class="ttl">4 · Précision</span><span class="ds">Rigueur en langue & transmission.</span></div>
+    </div>
+
+    <div class="recap-h">La traduction</div>
+    <div class="crow">
+      <div class="cbox wide" style="--cc:var(--mauve);--cc2:var(--mauve-d)"><span class="ttl">Une forme de tafsir</span><span class="ds">Transférer le sens, un <b>ijtihad</b> humain — <b>ce n'est plus le Coran</b>. Le traducteur = un moufassir + maîtrise de la langue d'arrivée. Les règles du Coran (pureté) et ses récompenses ne s'y appliquent pas.</span></div>
+    </div>
+
+    <div class="recap-h">Mérites de la science du tafsir</div>
+    <div class="crow">
+      <div class="cbox" style="--cc:var(--sauge);--cc2:var(--sauge-d)"><span class="ttl">Comprendre</span><span class="ds">Méditer la parole d'Allah.</span></div>
+      <div class="cbox" style="--cc:var(--coral);--cc2:var(--coral-d)"><span class="ttl">Devenir meilleur</span><span class="ds">« Le meilleur est celui qui l'apprend et l'enseigne. »</span></div>
+      <div class="cbox" style="--cc:var(--or);--cc2:var(--or-d)"><span class="ttl">Imiter les salaf</span><span class="ds">Pas + de 10 versets sans en saisir le sens.</span></div>
+    </div>
+
+    <div class="recap-h">Histoire : les 4 époques</div>
+    <div class="ladder">
+      <div class="rung" style="--cc:var(--or);--cc2:var(--or-d)"><span class="rn">1</span>Le Prophète ﷺ<span class="ar">النَّبِيّ</span></div>
+      <div class="rung" style="--cc:var(--rose);--cc2:var(--rose-d)"><span class="rn">2</span>Les compagnons<span class="ar">الصَّحَابَة</span></div>
+      <div class="rung" style="--cc:var(--mauve);--cc2:var(--mauve-d)"><span class="rn">3</span>Les tabi'in<span class="ar">التَّابِعُون</span></div>
+      <div class="rung" style="--cc:var(--ciel);--cc2:var(--ciel-d)"><span class="rn">4</span>La compilation<span class="ar">التَّدْوِين</span></div>
+    </div>
+    <div class="crow">
+      <div class="cbox" style="--cc:var(--rose);--cc2:var(--rose-d)"><span class="ttl">3 compagnons phares</span><span class="ds">Ibn 'Abbas (le + rapporté) · 'Ali · Ibn Mas'oud.</span></div>
+      <div class="cbox" style="--cc:var(--mauve);--cc2:var(--mauve-d)"><span class="ttl">Écoles des tabi'in</span><span class="ds">Médine : Zayd ibn Aslam · Koufa : an-Nakha'i · Bassora : al-Basri.</span></div>
+    </div>
+
+    <div class="recap-h">Les ouvrages de tafsir</div>
+    <div class="crow">
+      <div class="cbox" style="--cc:var(--sauge);--cc2:var(--sauge-d)"><span class="ttl">Références</span><span class="ds"><b>at-Tabari</b> (le 1er) · al-Baghawi · Ibn Kathir · as-Sa'di · ash-Shanqiti.</span></div>
+      <div class="cbox" style="--cc:var(--coral);--cc2:var(--coral-d)"><span class="ttl">Erreurs de croyance</span><span class="ds">Ibn 'Atiyya · Ibn al-Jawzi · al-Jalalayn · Ibn 'Achour.</span></div>
+    </div>
+
+    <!-- ===== BLOC 2 : SCIENCES DU CORAN ===== -->
+    <div class="recap-grp" style="--g1:var(--ciel);--g2:var(--mauve-d)">Sciences du Coran<span class="ar">عُلُوم القُرْآن</span></div>
+
+    <div class="recap-h">Asbab an-nouzoul</div>
+    <div class="duo">
+      <div class="d" style="--cc:var(--ciel);--cc2:var(--ciel-d)"><h4>Sans cause</h4><p>La majorité : révélés sans événement.</p></div>
+      <div class="d" style="--cc:var(--sauge);--cc2:var(--sauge-d)"><h4>Avec cause</h4><p>Révélés suite à un événement précis.</p></div>
+    </div>
+    <div class="rung" style="--cc:var(--or);--cc2:var(--or-d);margin-top:8px"><span class="rn">★</span>Règle d'or<span class="ar">العِبْرَة بِعُمُوم اللَّفْظ لَا بِخُصُوص السَّبَب</span></div>
+
+    <div class="recap-h">Asbab : les 5 usages des salaf</div>
+    <div class="crow">
+      <div class="cbox" style="--cc:var(--rose);--cc2:var(--rose-d)"><span class="ttl">1 · Récit lié</span><span class="ds">al-Fil & la Ka'ba.</span></div>
+      <div class="cbox" style="--cc:var(--coral);--cc2:var(--coral-d)"><span class="ttl">2 · Illustrer</span><span class="ds">Un événement qui éclaire le sens.</span></div>
+      <div class="cbox" style="--cc:var(--or);--cc2:var(--or-d)"><span class="ttl">3 · Argumenter</span><span class="ds">Appuyer une question.</span></div>
+      <div class="cbox" style="--cc:var(--sauge);--cc2:var(--sauge-d)"><span class="ttl">4 · Appliquer</span><span class="ds">Le verset vise l'événement.</span></div>
+      <div class="cbox wide" style="--cc:var(--mauve);--cc2:var(--mauve-d)"><span class="ttl">5 · Vraie cause</span><span class="ds">L'événement a réellement causé la révélation.</span></div>
+    </div>
+
+    <div class="recap-h">Naskh : définitions</div>
+    <div class="duo">
+      <div class="d" style="--cc:var(--or);--cc2:var(--or-d)"><h4>Linguistique</h4><span class="ar">الإِزَالَة · النَّقْل</span><p>Faire disparaître ou déplacer.</p></div>
+      <div class="d" style="--cc:var(--mauve);--cc2:var(--mauve-d)"><h4>Religieux</h4><p>Lever un jugement par le Coran/Sunna. (Shafi'i · ~20 abrogés.)</p></div>
+    </div>
+
+    <div class="recap-h">Les 5 sens de « naskh »</div>
+    <div class="crow">
+      <div class="cbox" style="--cc:var(--rose);--cc2:var(--rose-d)"><span class="ttl">Limiter</span><span class="ds">Restreindre un général.</span></div>
+      <div class="cbox" style="--cc:var(--coral);--cc2:var(--coral-d)"><span class="ttl">Restreindre</span><span class="ds">Jugement encore effectif.</span></div>
+      <div class="cbox" style="--cc:var(--or);--cc2:var(--or-d)"><span class="ttl">Préciser</span><span class="ds">Clarifier une notion.</span></div>
+      <div class="cbox" style="--cc:var(--sauge);--cc2:var(--sauge-d)"><span class="ttl">Suspendre</span><span class="ds">Conditions absentes (jihad).</span></div>
+      <div class="cbox" style="--cc:var(--ciel);--cc2:var(--ciel-d)"><span class="ttl">Interdire</span><span class="ds">Rendre illicite un licite.</span></div>
+    </div>
+
+    <div class="recap-h">Les 7 conditions de l'abrogation</div>
+    <div class="crow">
+      <div class="cbox" style="--cc:var(--ciel);--cc2:var(--ciel-d)"><span class="ttl">1 · Deux textes</span><span class="ds">De la révélation (pas ijma'/qiyas).</span></div>
+      <div class="cbox" style="--cc:var(--sauge);--cc2:var(--sauge-d)"><span class="ttl">2 · Authentiques</span><span class="ds">Pour la Sunna.</span></div>
+      <div class="cbox" style="--cc:var(--or);--cc2:var(--or-d)"><span class="ttl">3 · Jugement d'un texte</span><span class="ds">Pas le principe « tout licite ».</span></div>
+      <div class="cbox" style="--cc:var(--rose);--cc2:var(--rose-d)"><span class="ttl">4 · Les membres</span><span class="ds">Pas le cœur (croyance).</span></div>
+      <div class="cbox" style="--cc:var(--coral);--cc2:var(--coral-d)"><span class="ttl">5 · Particulier</span><span class="ds">Jamais une règle générale.</span></div>
+      <div class="cbox" style="--cc:var(--mauve);--cc2:var(--mauve-d)"><span class="ttl">6 · Opposition totale</span><span class="ds">Sinon, on concilie.</span></div>
+      <div class="cbox wide" style="--cc:var(--ciel);--cc2:var(--ciel-d)"><span class="ttl">7 · Chronologie connue</span><span class="ds">L'un précède l'autre.</span></div>
+    </div>
+
+    <div class="recap-h">Abrogation : qui abroge qui ?</div>
+    <div class="crow">
+      <div class="cbox" style="--cc:var(--sauge);--cc2:var(--sauge-d)"><span class="ttl">Coran ← Coran</span><span class="ds">Sans divergence.</span></div>
+      <div class="cbox" style="--cc:var(--sauge);--cc2:var(--sauge-d)"><span class="ttl">Sunna ← Sunna</span><span class="ds">Sans divergence.</span></div>
+      <div class="cbox" style="--cc:var(--coral);--cc2:var(--coral-d)"><span class="ttl">Coran ← Sunna ?</span><span class="ds">2 avis · cas rares.</span></div>
+      <div class="cbox" style="--cc:var(--mauve);--cc2:var(--mauve-d)"><span class="ttl">Sunna ← Coran</span><span class="ds">Ex. la Qibla.</span></div>
+    </div>
+
+    <div class="recap-h">Abrogation : types & sagesses</div>
+    <div class="crow">
+      <div class="cbox" style="--cc:var(--ciel);--cc2:var(--ciel-d)"><span class="ttl">Jugement abrogé</span><span class="ds">Récitation conservée.</span></div>
+      <div class="cbox" style="--cc:var(--rose);--cc2:var(--rose-d)"><span class="ttl">Récitation abrogée</span><span class="ds">Jugement présent.</span></div>
+      <div class="cbox" style="--cc:var(--mauve);--cc2:var(--mauve-d)"><span class="ttl">Les deux abrogés</span></div>
+    </div>
+    <div class="crow">
+      <div class="cbox wide" style="--cc:var(--or);--cc2:var(--or-d)"><span class="ttl">3 sagesses</span><span class="ds">Éprouver la soumission · alléger (bienfait) · éduquer progressivement (ex. le jeûne).</span></div>
+    </div>
+
+    <div class="recap-h">Mouhkam & Moutachabih</div>
+    <div class="duo">
+      <div class="d" style="--cc:var(--sauge);--cc2:var(--sauge-d)"><h4>Mouhkam</h4><span class="ar">المُحْكَم</span><p>Clair & explicite.</p></div>
+      <div class="d" style="--cc:var(--coral);--cc2:var(--coral-d)"><h4>Moutachabih</h4><span class="ar">المُتَشَابِه</span><p>Équivoque, peut sembler ambigu.</p></div>
+    </div>
+    <div class="crow">
+      <div class="cbox" style="--cc:var(--ciel);--cc2:var(--ciel-d)"><span class="ttl">Ambiguïté relative</span><span class="ds">Due au lecteur · disparaît en apprenant.</span></div>
+      <div class="cbox" style="--cc:var(--mauve);--cc2:var(--mauve-d)"><span class="ttl">Ambiguïté réelle</span><span class="ds">L'invisible connu d'Allah Seul.</span></div>
+    </div>
+    <div class="crow">
+      <div class="cbox wide" style="--cc:var(--rose);--cc2:var(--rose-d)"><span class="ttl">Causes du manque de clarté</span><span class="ds">Ignorance de la langue & des coutumes · ne pas corréler les versets · verset global expliqué ailleurs · terme polysémique · confusion des contextes.</span></div>
+    </div>
+
+    <div class="recap-h">Les 3 sens du Ta'wil</div>
+    <div class="crow">
+      <div class="cbox" style="--cc:var(--mauve);--cc2:var(--mauve-d)"><span class="ttl">1 · Le tafsir</span><span class="ds">L'explication d'une parole.</span></div>
+      <div class="cbox" style="--cc:var(--ciel);--cc2:var(--ciel-d)"><span class="ttl">2 · La réalisation</span><span class="ds">L'accomplissement d'une parole.</span></div>
+      <div class="cbox" style="--cc:var(--coral);--cc2:var(--coral-d)"><span class="ttl">3 · Sens tardif</span><span class="ds">Délaisser l'apparent <b>avec preuve</b>.</span></div>
+    </div>
+    <div class="crow">
+      <div class="cbox wide" style="--cc:var(--sauge);--cc2:var(--sauge-d)"><span class="ttl">Conditions d'un ta'wil juste</span><span class="ds">Sens possible en arabe · prendre le contexte · argument fort · rien ne rejette ce 2ᵉ sens. Sinon = <b>tahrif</b>.</span></div>
+    </div>
+
+    <!-- ===== BLOC 3 : I'JAZ & STYLE ===== -->
+    <div class="recap-grp" style="--g1:var(--sauge);--g2:var(--ciel-d)">I'jaz & style<span class="ar">الإِعْجَاز وَالأُسْلُوب</span></div>
+
+    <div class="recap-h">Le miracle : définitions</div>
+    <div class="duo">
+      <div class="d" style="--cc:var(--ciel);--cc2:var(--ciel-d)"><h4>I'jaz</h4><span class="ar">إِعْجَاز</span><p>Rendre les défieurs incapables d'imiter.</p></div>
+      <div class="d" style="--cc:var(--mauve);--cc2:var(--mauve-d)"><h4>Mou'jiza</h4><span class="ar">مُعْجِزَة</span><p>Le miracle. Mieux : آية · بُرْهَان · بَيِّنَة.</p></div>
+    </div>
+    <div class="rung" style="--cc:var(--coral);--cc2:var(--coral-d);margin-top:8px"><span class="rn">!</span>As-Sarfa (Mu'tazila) : avis très faible<span class="ar">الصَّرْفَة</span></div>
+
+    <div class="recap-h">Le défi en 3 étapes</div>
+    <div class="ladder">
+      <div class="rung" style="--cc:var(--ciel);--cc2:var(--ciel-d)"><span class="rn">1</span>Tout le Coran<span class="ar">القُرْآن كُلّه</span></div>
+      <div class="rung" style="--cc:var(--or);--cc2:var(--or-d)"><span class="rn">2</span>Dix sourates<span class="ar">عَشْر سُوَر</span></div>
+      <div class="rung" style="--cc:var(--coral);--cc2:var(--coral-d)"><span class="rn">3</span>Une seule sourate<span class="ar">سُورَة وَاحِدَة</span></div>
+    </div>
+
+    <div class="recap-h">Aspects du miracle</div>
+    <div class="crow">
+      <div class="cbox" style="--cc:var(--rose);--cc2:var(--rose-d)"><span class="ttl">Éloquence</span><span class="ds">Husn at-taqsim · jinas · tibaq · tachbih · concision · accord du contexte.</span></div>
+      <div class="cbox" style="--cc:var(--mauve);--cc2:var(--mauve-d)"><span class="ttl">Sagesse & effet</span><span class="ds">Sens plus grands que les termes · larmes, fermeté du cœur.</span></div>
+    </div>
+    <div class="crow">
+      <div class="cbox" style="--cc:var(--sauge);--cc2:var(--sauge-d)"><span class="ttl">Véracité</span><span class="ds">Passé · avenir · scientifique.</span></div>
+      <div class="cbox" style="--cc:var(--coral);--cc2:var(--coral-d)"><span class="ttl">À éviter</span><span class="ds">Exagérations scientifiques & miracles numériques.</span></div>
+    </div>
+
+    <div class="recap-h">Amthal : les 5 sens du mot</div>
+    <div class="crow">
+      <div class="cbox" style="--cc:var(--or);--cc2:var(--or-d)"><span class="ttl">مَثَل</span><span class="ds">Comparaison.</span></div>
+      <div class="cbox" style="--cc:var(--coral);--cc2:var(--coral-d)"><span class="ttl">أمْثَل السُّلْطَان</span><span class="ds">Mise à mort (réciprocité).</span></div>
+      <div class="cbox" style="--cc:var(--rose);--cc2:var(--rose-d)"><span class="ttl">Proverbe</span><span class="ds">ضيعت الصيف اللبن.</span></div>
+      <div class="cbox" style="--cc:var(--mauve);--cc2:var(--mauve-d)"><span class="ttl">المُثْلَة</span><span class="ds">Mutilation (interdite).</span></div>
+      <div class="cbox" style="--cc:var(--sauge);--cc2:var(--sauge-d)"><span class="ttl">أمْثَل</span><span class="ds">Le plus honorable.</span></div>
+    </div>
+
+    <div class="recap-h">Les 3 catégories d'amthal</div>
+    <div class="crow">
+      <div class="cbox" style="--cc:var(--or);--cc2:var(--or-d)"><span class="ttl">Explicites</span><span class="ds"><span class="ar">المُصَرَّحَة</span> · comparaison déclarée.</span></div>
+      <div class="cbox" style="--cc:var(--rose);--cc2:var(--rose-d)"><span class="ttl">Cachées</span><span class="ds"><span class="ar">الكَامِنَة</span> · rejoint un proverbe.</span></div>
+      <div class="cbox" style="--cc:var(--sauge);--cc2:var(--sauge-d)"><span class="ttl">Libres</span><span class="ds"><span class="ar">المُرْسَلَة</span> · utilisable en proverbe.</span></div>
+    </div>
+    <div class="crow">
+      <div class="cbox wide" style="--cc:var(--ciel);--cc2:var(--ciel-d)"><span class="ttl">Leurs bénéfices</span><span class="ds">Comprendre l'abstrait · dire beaucoup en peu · encourager le bien · mettre en garde · exposer vrai & faux · faire méditer.</span></div>
+    </div>
+
+    <div class="recap-h">Le serment (Qasam)</div>
+    <div class="crow">
+      <div class="cbox" style="--cc:var(--rose);--cc2:var(--rose-d)"><span class="ttl">3 composantes</span><span class="ds">Verbe jurer · <span class="ar">المُقْسَم بِه</span> · <span class="ar">المُقْسَم عَلَيه</span>.</span></div>
+      <div class="cbox" style="--cc:var(--coral);--cc2:var(--coral-d)"><span class="ttl">Jurer par autre qu'Allah</span><span class="ds"><b>Shirk</b> — mineur ou majeur.</span></div>
+    </div>
+    <div class="crow">
+      <div class="cbox wide" style="--cc:var(--mauve);--cc2:var(--mauve-d)"><span class="ttl">Les 5 thèmes</span><span class="ds">Tawhid · véracité du Coran · véracité du Prophète · Résurrection · situations de l'homme.</span></div>
+    </div>
+
+    <!-- ===== BLOC 4 : MÉTHODOLOGIE ===== -->
+    <div class="recap-grp" style="--g1:var(--coral);--g2:var(--mauve-d)">Méthodologie<span class="ar">المَنْهَج</span></div>
+
+    <div class="recap-h">Les 6 sources du tafsir</div>
+    <div class="ladder">
+      <div class="rung" style="--cc:var(--sauge);--cc2:var(--sauge-d)"><span class="rn">1</span>Le Coran par le Coran<span class="ar">القُرْآن</span></div>
+      <div class="rung" style="--cc:var(--ciel);--cc2:var(--ciel-d)"><span class="rn">2</span>Le Coran par la Sunna<span class="ar">السُّنَّة</span></div>
+      <div class="rung" style="--cc:var(--mauve);--cc2:var(--mauve-d)"><span class="rn">3</span>Parole des compagnons<span class="ar">الصَّحَابَة</span></div>
+      <div class="rung" style="--cc:var(--rose);--cc2:var(--rose-d)"><span class="rn">4</span>Parole des tabi'in<span class="ar">التَّابِعِين</span></div>
+      <div class="rung" style="--cc:var(--or);--cc2:var(--or-d)"><span class="rn">5</span>La langue arabe<span class="ar">اللُّغَة</span></div>
+      <div class="rung" style="--cc:var(--coral);--cc2:var(--coral-d)"><span class="rn">6</span>La réflexion (ra'y)<span class="ar">الرَّأْي</span></div>
+    </div>
+
+    <div class="recap-h">Les israïliyyat : 3 catégories</div>
+    <div class="crow">
+      <div class="cbox" style="--cc:var(--sauge);--cc2:var(--sauge-d)"><span class="ttl">Confirmés</span><span class="ds">Par nos textes → on y croit.</span></div>
+      <div class="cbox" style="--cc:var(--or);--cc2:var(--or-d)"><span class="ttl">Inconnus</span><span class="ds">Ni croire ni rejeter.</span></div>
+      <div class="cbox" style="--cc:var(--coral);--cc2:var(--coral-d)"><span class="ttl">Rejetés</span><span class="ds">Contredits par nos textes.</span></div>
+    </div>
+
+    <div class="recap-h">Parole d'un compagnon / tabi'i</div>
+    <div class="crow">
+      <div class="cbox" style="--cc:var(--mauve);--cc2:var(--mauve-d)"><span class="ttl">Invisible / circonstances</span><span class="ds">Implicitement attribuée au Prophète ﷺ (Sunna).</span></div>
+      <div class="cbox" style="--cc:var(--ciel);--cc2:var(--ciel-d)"><span class="ttl">Issue d'un ijtihad</span><span class="ds">Unanime → ijma' · divergent → avis fort · unique → à prendre.</span></div>
+    </div>
+
+    <div class="recap-h">La divergence</div>
+    <div class="duo">
+      <div class="d" style="--cc:var(--sauge);--cc2:var(--sauge-d)"><h4>De forme</h4><span class="ar">اخْتِلَاف التَّنَوُّع</span><p>Avis qui ne s'opposent pas. La majorité des cas.</p></div>
+      <div class="d" style="--cc:var(--coral);--cc2:var(--coral-d)"><h4>De fond</h4><span class="ar">اخْتِلَاف التَّضَادّ</span><p>Avis contradictoires : l'un exclut l'autre.</p></div>
+    </div>
+    <div class="crow">
+      <div class="cbox wide" style="--cc:var(--or);--cc2:var(--or-d)"><span class="ttl">Catégories de forme</span><span class="ds">Notion unique à plusieurs traits · notion générale · homonymes (<span class="ar">المُشْتَرَكَة</span>) · notion précisée par le contexte.</span></div>
+    </div>
+    <div class="crow">
+      <div class="cbox wide" style="--cc:var(--rose);--cc2:var(--rose-d)"><span class="ttl">Les 6 causes de divergence</span><span class="ds">Homonymes · pronom à plusieurs référents · racines différentes · abrogé/non-abrogé · description multiple · plusieurs lectures (qira'at).</span></div>
+    </div>
+
+    <div class="foot" style="margin-top:20px">qu'Allah facilite ta mémorisation, Asma<br><span class="small">Oussoul at-Tafsir · semestre 1 · récapitulatif complet</span></div>
+  </div>
+</section>
+
+</div><!-- /wrap -->
+
+<button class="toTop" id="toTop" aria-label="Remonter">↑</button>
+
+<script>
+(function(){
+  var burger=document.getElementById('burger');
+  var drawer=document.getElementById('drawer');
+  var scrim=document.getElementById('scrim');
+  var navlist=document.getElementById('navlist');
+  var toTop=document.getElementById('toTop');
+
+  function openDrawer(){drawer.classList.add('open');scrim.classList.add('open');document.body.style.overflow='hidden';}
+  function closeDrawer(){drawer.classList.remove('open');scrim.classList.remove('open');document.body.style.overflow='';}
+
+  burger.addEventListener('click',function(){drawer.classList.contains('open')?closeDrawer():openDrawer();});
+  scrim.addEventListener('click',closeDrawer);
+
+  navlist.addEventListener('click',function(e){
+    var a=e.target.closest('a[data-go]');
+    if(!a)return;
+    e.preventDefault();
+    var el=document.getElementById(a.getAttribute('data-go'));
+    closeDrawer();
+    if(el){
+      setTimeout(function(){el.scrollIntoView({behavior:'smooth',block:'start'});},180);
+    }
+  });
+
+  window.addEventListener('scroll',function(){
+    if(window.scrollY>500){toTop.classList.add('show');}else{toTop.classList.remove('show');}
+  },{passive:true});
+
+  toTop.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});
+
+  // cartes du récapitulatif (hors menu)
+  document.addEventListener('click',function(e){
+    var c=e.target.closest('.chip[data-go]');
+    if(!c)return;
+    e.preventDefault();
+    var el=document.getElementById(c.getAttribute('data-go'));
+    if(el){el.scrollIntoView({behavior:'smooth',block:'start'});}
+  });
+
+  document.addEventListener('keydown',function(e){
+    if(e.key==='Escape'&&drawer.classList.contains('open')){closeDrawer();}
+  });
+})();
+</script>
+</body>
+</html>
